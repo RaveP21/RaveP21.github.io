@@ -94,5 +94,8 @@ TODO: Your Use-Case diagram should include all use-cases.
 
 ### Non-Functional Requirements
     NFR1, The system may have account settings for regular use
+    NFR2, The system should show a high resolution image of the map
+    NFR3, The website must work in mobile
+    NFR4, The website may suggest different areas, incase not enough desired, area requirements are found in an area
 
 Indicate which UC the requirement comes from.
