@@ -6,13 +6,13 @@
 TODO: Write brief user stories to explain how various actors would interact with the system to accomplish a goal.
     Express these in the form from agile development:- As a (role) I want (goal) so that (benefit).
 
-    -> As a business i want regional, relivent data so that we can choose between locations to open business chains
-    -> As a potential mover, i want regional and relivent data so that i can choose a good place for me/my family to move to
-    -> As a resident i want relivent data on the area i live in so that i can get a better understanding of my area
+    -> As a business i want regional, relevant data so that we can choose between locations to open business chains
+    -> As a potential mover, i want regional and relevant data so that i can choose a good place for me/my family to move to
+    -> As a resident i want relevant data on the area i live in so that i can get a better understanding of my area
 
 ### Actors
-    -> Mover, is someone who is looking to move to a new location and needs relivent data to make a decision 
-    -> Business, is an entity which is looking to open new locations for their business and need relivent data to select the best candidate (area) 
+    -> Mover, is someone who is looking to move to a new location and needs relevant data to make a decision 
+    -> Business, is an entity which is looking to open new locations for their business and need relevant data to select the best candidate (area) 
     -> resident, is someone who is already in an area but would like to look into details of the area they live in
 
 ### Use Cases
@@ -21,7 +21,7 @@ TODO: Write brief user stories to explain how various actors would interact with
     | -------------------------------------- | ------------------- |
     | This user, is looking to move from their current area (anywhere in the world) to a new area, this website will present the user with information about the areas they are interested in, so that they can make an educated decision on where they move to, be it with family or by themselves | TODO: Goal to be achieved by use case and sources for requirement |
 
-    | Mover | TODO: List of actors involved in use case |
+    | Mover | Individuals, couples or domestic families or friends |
 
     | Assumptions include: 1) The user is using a browser which can support the website's acitvities
                        2) The data presented to the user is up-to date
