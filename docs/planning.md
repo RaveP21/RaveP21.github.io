@@ -25,4 +25,4 @@ Things that are inside project scope:
   . Efficient Web design 
   . Movers, entrepreneurs, curious citizens 
 
-![Insert your Context Diagram Here](images/context.pn
+![Insert your Context Diagram Here](images/context.png)
