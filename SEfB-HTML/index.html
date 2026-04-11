@@ -1,0 +1,115 @@
+<html>
+ 
+<head>
+    <title>Bike Pump Finder</title>
+    <!-- font links -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com"> 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <script>
+        function outputTable(json) {
+            let e = document.getElementById("results");
+            e.innerHTML = "";
+            let f = json.features;
+            for(let i=0; i<f.length;i++){
+                let tr = document.createElement("tr");
+                e.appendChild(tr);
+
+                let a = f[i].attributes;
+
+                let td = document.createElement("td");
+                td.innerHTML = a.NAME;
+                tr.appendChild(td);
+
+                td = document.createElement("td");
+                td.innerHTML = a.WARD_ID;
+                tr.appendChild(td);
+
+                td = document.createElement("td");
+                td.innerHTML = a.COUNCILLORS;
+                tr.appendChild(td);
+
+            }
+
+        }
+
+       
+
+        function search(searchterm) {
+            let enc = encodeURIComponent(searchterm);
+            let url = `https://maps2.bristol.gov.uk/server2/rest/services/ext/ll_boundaries/MapServer/4/query?where=&text=${enc}&outFields=*&f=pjson`;
+            fetch(url).then(r=>r.json()).then(outputTable)
+        }
+
+        function filter(type)
+        {
+            let enc = encodeURIComponent(type);
+            let url = `https://maps2.bristol.gov.uk/server2/rest/services/ext/ll_boundaries/MapServer/4/query?where=COUNCILLORS%20%3D%20'${type}'&outFields=*&outSR=4326&f=json`;
+            fetch(url).then(r=>r.json()).then(outputTable)
+        }
+
+        function query() {
+
+           let url = "https://maps2.bristol.gov.uk/server2/rest/services/ext/ll_boundaries/MapServer/4/query?where=1%3D1&outFields=*&outSR=4326&f=json"
+           fetch(url).then(r=>r.json()).then(outputTable)
+
+        }
+
+        function getLocation(page){
+            if (navigator.geolocation){
+                navigator.geolocation.getCurrentPosition( // permission granted, denied - location defaults to central Bristol
+                    loc => window.location.href=`${page}?lat=${loc.coords.latitude}&lon=${loc.coords.longitude}`,
+                    () => window.location.href=`${page}?lat=51.454514&lon=-2.587910`
+                )
+            }
+            else window.alert("Geolocation is not supported by this browser.")
+            window.location.href=`${page}?lat=51.454514&lon=-2.587910`;
+        }
+
+    </script>
+</head>
+ 
+<body>
+    
+    <div class="grid-container">
+        <header class="gold padded">
+            <span class="title">Bristol Wards</span>
+            <form id="search" action="index.html" >
+                <input name="searchterm" type="text" placeholder="Search..." >
+                <button type="input"><i class="material-icons">search</i></button>
+            </form>
+            
+        </header>
+        <nav>
+            <button onclick="getLocation('map.html')" class="w3-button w3-blue w3-block w3-border w3-border-white">Map</button>
+            <button class="w3-button w3-blue w3-block w3-border w3-border-white" onclick="location.href='index.html'">More ward</button>
+        </nav>
+        <main>
+        <div id="Councillor" class="w3-bar">
+            <button class="w3-bar-item w3-button w3-ripple w3-green" onclick="filter(1)"
+            >1 Councillor</button>
+        
+            <button class="w3-bar-item w3-button w3-ripple w3-green" onclick="filter(2)"
+            >2 Councillor</button>
+
+            <button class="w3-bar-item w3-button w3-ripple w3-green" onclick="filter(3)"
+            >3 Councillor</button>
+        </div>    
+            <table>
+                <thead><th>Name</th><th>WARD_ID</th><th>No. of Councillors</th></thead>
+                <tbody id="results"></tbody>
+            </table>
+        </main>
+    </div>
+    <script>
+        var urlParams = new URLSearchParams(location.search);
+        var searchterm = urlParams.get('searchterm');
+        if (searchterm) search(searchterm);
+        else query()
+    </script>
+</body>
+ 
+</html>

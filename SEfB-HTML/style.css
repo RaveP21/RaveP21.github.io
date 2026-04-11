@@ -1,0 +1,25 @@
+.grid-container {
+    display:grid;
+    grid-template-areas:
+    'h h h h '
+    'n m m m '
+    'n m m m '
+}
+header { grid-area:h}
+nav {grid-area:n}
+main {grid-area:m}
+ 
+#search { float:right}
+
+td {
+    text-align: center;
+}
+#Councillor {
+    float: left;
+    padding-right: 2%;
+    padding-bottom: 50px;
+}
+
+#map{ position: relative; height: 500px;
+    margin-left:10px; margin-right: 10px;
+}
