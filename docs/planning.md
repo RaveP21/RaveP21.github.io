@@ -3,7 +3,7 @@
 ## Business Case
 
 ### Problem statement
-If a person wants to move to Bristol, they will want to know more about their neighborhood in Bristol. Plus the propective Bristol entrepaneurs, together they all have a few things in common. Needing to filter, understand and evaluate information and data regarding to specific wards in Bristol.
+If a person wants to move to Bristol, they will want to know more about their neighborhood in Bristol. Plus the propective Bristol entrepreneurs, together they all have a few things in common. Needing to filter, understand and evaluate information and data regarding to specific wards in Bristol.
 
 ### Business benefits
 Open Data Bristol Hides accessible handy tools at the bottom of lists behind the last tab and other websites monitor and restrict this information behind a paywall. We want to bring a quick, free and effiecient tool into the mix; information such as crime rates, housing, health employment and more.
