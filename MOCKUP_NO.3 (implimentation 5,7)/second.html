@@ -16,7 +16,7 @@
         // Function mapInfo takes ward coordinate data url, transforms it to usable object
         //  and creates loop for drawward function for all features
         function mapInfo(){
-            let url = "https://maps2.bristol.gov.uk/server2/rest/services/ext/ll_boundaries/MapServer/4/query?where=1%3D1&outFields=*&outSR=4326&f=json"
+            let url = "https://maps2.bristol.gov.uk/server2/rest/services/ext/ll_boundaries/MapServer/4/query?where=1%3D1&outFields=*&outSR=4326&f=json&resultRecordCount=1000";
             fetch(url).then(r=>r.json()).then(json =>{
 
                 let feature = json.features;
@@ -24,6 +24,8 @@
                 for (let j=0; j<feature.length; j++){
                     
                     drawWard(feature[j], map);
+
+                    
 
                 }
 
@@ -34,12 +36,74 @@
         //  so latlngs stores the points the right way around
         function drawWard(feature, map){
 
+            let a = feature.attributes;
+
             let ring = feature.geometry.rings[0];
 
             let latlngs = ring.map(point => [point[1], point[0]]);
 
-            L.polygon(latlngs).addTo(map)
+            let polygon = L.polygon(latlngs, {
+                color: "transparent",
+                fillColor: "transparent",
+                fillOpacity: 0,
+                weight: 0
+            }).addTo(map);
 
+            polygon.bindTooltip(a.NAME, {sticky: true});
+
+            polygon.on("mouseover", function () {
+                    this.setStyle({
+                        color: "blue",
+                        fillColor: "blue",
+                        fillOpacity: 0.5,
+                        weight: 2
+                    });
+            })
+
+            polygon.on("mouseout", function () {
+                    this.setStyle({
+                        color: "transparent",
+                        fillColor: "transparent",
+                        fillOpacity: 0,
+                        weight: 0
+                    });
+              });
+
+            polygon.on("click", function () {//changing the output url depending on the clicked marker
+                window.location.href = `forth.html?role=${role}&ward=${encodeURIComponent(a.NAME)}`;
+    });
+
+        }
+
+        function mapIcons(feature, map){
+
+            let a = feature.attributes;
+            let ring = feature.geometry.rings[0];
+
+            let sumLat = 0;
+            let sumLon = 0;
+
+            for (let i = 0; i < ring.length; i++){
+                sumLon += ring[i][0]; // longitude
+                sumLat += ring[i][1]; // latitude
+            }
+
+            let lat = sumLat / ring.length;
+            let lon = sumLon / ring.length;
+
+            const marker = L.marker([lat, lon]).addTo(map);
+
+            marker.bindTooltip(a.NAME, {
+                permanent: false,
+                direction: "top"
+            });
+
+            marker.on("click", function () {//changing the output url depending on the clicked marker
+                window.location.href = `forth.html?role=${role}&ward=${encodeURIComponent(a.NAME)}`;
+            });
+
+
+            
         }
 
     </script>
@@ -131,7 +195,7 @@
         L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; OpenStreetMap contributors'
     }).addTo(map);
-
+/*
     const wards = [                          //naming this "wards"
   { name: "Ashley", lat: 51.4680, lng: -2.5900 },
   { name: "Bedminster", lat: 51.4380, lng: -2.5970 },
@@ -164,8 +228,9 @@
   { name: "Stoke Park", lat: 51.4750, lng: -2.5450 },
   { name: "St Pauls", lat: 51.4630, lng: -2.5790 },
   { name: "Windmill Hill", lat: 51.4380, lng: -2.5850 }
-];
+];*/
 
+/*
 wards.forEach(w => {                //using "wards" to pull data
     const marker = L.marker([w.lat, w.lng]).addTo(map);
 
@@ -178,6 +243,8 @@ wards.forEach(w => {                //using "wards" to pull data
         window.location.href = `forth.html?role=${role}&ward=${encodeURIComponent(w.name)}`;
     });
 });
+*/
+
 
 mapInfo();
 
