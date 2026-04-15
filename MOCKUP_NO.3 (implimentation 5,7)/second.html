@@ -1,0 +1,190 @@
+<html>
+
+<head>
+
+    <title>Ward Finder</title>
+
+    <link rel="stylesheet" href="second.css">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+            crossorigin=""></script>
+
+    <script>
+        // Function mapInfo takes ward coordinate data url, transforms it to usable object
+        //  and creates loop for drawward function for all features
+        function mapInfo(){
+            let url = "https://maps2.bristol.gov.uk/server2/rest/services/ext/ll_boundaries/MapServer/4/query?where=1%3D1&outFields=*&outSR=4326&f=json"
+            fetch(url).then(r=>r.json()).then(json =>{
+
+                let feature = json.features;
+
+                for (let j=0; j<feature.length; j++){
+                    
+                    drawWard(feature[j], map);
+
+                }
+
+            })
+        }
+        // Function drawWard takes the coordinates from "../geometry/rings" and stores it
+        // in the first space in the array however it is stored as long lat and not lat long
+        //  so latlngs stores the points the right way around
+        function drawWard(feature, map){
+
+            let ring = feature.geometry.rings[0];
+
+            let latlngs = ring.map(point => [point[1], point[0]]);
+
+            L.polygon(latlngs).addTo(map)
+
+        }
+
+    </script>
+
+</head>
+
+<body>
+
+<div id="container">
+
+
+    <div class="box1">
+        <logo>
+
+        <a href="second.html"><img src="1.jpg" width="100"; hight="100;"></a>
+
+        </logo>
+    </div>
+
+
+    <div class="box2">
+    <header>
+
+        <h1>Click on Ward</h1>
+
+        <span id="search">
+            <form action="sixth.html" method="get">
+          <input type="text" name="search" placeholder="Search...">
+          <input type="hidden" name="role" id="RoleSEARCH">
+
+          <button type="submit">CLICK</button>
+            </form>
+
+        </span>
+
+    </header>
+    </div>
+
+    <div class="box3">
+    <nav>
+
+        <button style="font-size:10px; background-color:#FFCAA4">1st option</button>
+
+        <button style="font-size:10px; background-color:#FFCAA4">2nd option</button>
+
+        <button style="font-size:10px; background-color:#FFCAA4">3rd option</button>
+        <a href="first.html"><button style="font-size:10px; background-color:#FFCAA4">Role selection</button> </a>
+
+
+    </nav>
+    </div>
+
+    <div class="box4">
+    <main>
+
+        <div>
+
+            <form action="second.html" method="get">
+                <input type="hidden" name="role" id="RoleMAP">
+
+                <button style="font-size:10px; background-color:gray" type="submit">MAP</button>
+            </form>
+            <form action="third.html" method="get">
+                <input type="hidden" name="role" id="RoleRANK">
+
+                <button style="font-size:10px; background-color:#D3D3D3" type="submit">Rank Ward By Tag</button>
+            </form>
+
+        </div>
+
+        <div id="map"></div>
+
+
+
+    </main>
+    </div>
+
+    </div>
+
+<script>
+    const params = new URLSearchParams(window.location.search);
+    const role = params.get("role");
+
+    document.getElementById("RoleMAP").value = role;
+    document.getElementById("RoleRANK").value = role;
+    document.getElementById("RoleSEARCH").value = role;
+
+    var map = L.map('map').setView([51.4680, -2.5900], 12);
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    const wards = [                          //naming this "wards"
+  { name: "Ashley", lat: 51.4680, lng: -2.5900 },
+  { name: "Bedminster", lat: 51.4380, lng: -2.5970 },
+  { name: "Bishopston & Ashley Down", lat: 51.4740, lng: -2.5910 },
+  { name: "Brislington East", lat: 51.4310, lng: -2.5400 },
+  { name: "Brislington West", lat: 51.4370, lng: -2.5600 },
+  { name: "Cabot", lat: 51.4550, lng: -2.6000 },
+  { name: "Clifton", lat: 51.4630, lng: -2.6160 },
+  { name: "Clifton Down", lat: 51.4680, lng: -2.6160 },
+  { name: "Cotham", lat: 51.4645, lng: -2.6030 },
+  { name: "Easton", lat: 51.4685, lng: -2.5640 },
+  { name: "Eastville", lat: 51.4760, lng: -2.5520 },
+  { name: "Filwood", lat: 51.4200, lng: -2.5700 },
+  { name: "Frome Vale", lat: 51.4800, lng: -2.5400 },
+  { name: "Hartcliffe & Withywood", lat: 51.4050, lng: -2.6200 },
+  { name: "Hengrove & Whitchurch Park", lat: 51.4150, lng: -2.5800 },
+  { name: "Hillfields", lat: 51.4700, lng: -2.5400 },
+  { name: "Horfield", lat: 51.4850, lng: -2.5800 },
+  { name: "Hotwells & Harbourside", lat: 51.4470, lng: -2.6100 },
+  { name: "Knowle", lat: 51.4300, lng: -2.5800 },
+  { name: "Lawrence Hill", lat: 51.4560, lng: -2.5700 },
+  { name: "Lockleaze", lat: 51.4900, lng: -2.5700 },
+  { name: "Redland", lat: 51.4710, lng: -2.6070 },
+  { name: "Southmead", lat: 51.5000, lng: -2.6000 },
+  { name: "Southville", lat: 51.4430, lng: -2.6100 },
+  { name: "St George Central", lat: 51.4580, lng: -2.5300 },
+  { name: "St George Troopers Hill", lat: 51.4500, lng: -2.5200 },
+  { name: "Stoke Bishop", lat: 51.4850, lng: -2.6350 },
+  { name: "Stockwood", lat: 51.4100, lng: -2.5500 },
+  { name: "Stoke Park", lat: 51.4750, lng: -2.5450 },
+  { name: "St Pauls", lat: 51.4630, lng: -2.5790 },
+  { name: "Windmill Hill", lat: 51.4380, lng: -2.5850 }
+];
+
+wards.forEach(w => {                //using "wards" to pull data
+    const marker = L.marker([w.lat, w.lng]).addTo(map);
+
+    marker.bindTooltip(w.name, {
+        permanent: false,
+        direction: "top"
+    });
+
+    marker.on("click", function () {              //changing the output url depending on the clicked marker
+        window.location.href = `forth.html?role=${role}&ward=${encodeURIComponent(w.name)}`;
+    });
+});
+
+mapInfo();
+
+</script>
+
+
+
+</body>
+
+</html>

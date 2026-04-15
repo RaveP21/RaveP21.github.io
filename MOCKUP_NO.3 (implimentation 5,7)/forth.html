@@ -1,0 +1,194 @@
+<html>
+
+<head>
+
+    <title>Ward Finder</title>
+
+    <link rel="stylesheet" href="forth.css">
+
+</head>
+
+<body>
+
+<div id="container">
+
+
+    <div class="box1">
+        <logo>
+
+            <a href="second.html"><img src="1.jpg" width="100"; hight="100;"></a>
+
+        </logo>
+    </div>
+
+
+    <div class="box2">
+        <header>
+
+            <h1>Select Topics</h1>
+
+            <span id="search">
+<form action="sixth.html" method="get">
+          <input type="text" name="search" placeholder="Search...">
+
+          <button type="submit">CLICK</button>
+            </form>
+        </span>
+
+        </header>
+    </div>
+
+    <div class="box3">
+        <nav>
+
+            <button style="font-size:10px; background-color:#FFCAA4">1st option</button>
+
+            <button style="font-size:10px; background-color:#FFCAA4">2nd option</button>
+
+            <button style="font-size:10px; background-color:#FFCAA4">3rd option</button>
+            <a href="first.html"><button style="font-size:10px; background-color:#FFCAA4">Role selection</button> </a>
+
+
+        </nav>
+    </div>
+
+    <div class="box4">
+        <main>
+
+
+            <form class="checklist" action="seventh.html" method="get">
+                <input type="hidden" name="ward" id="wardInput">
+                <label>
+                    <input type="checkbox" name="info" value="1">
+                    Adult Social Care
+                </label><br>
+                <label>
+                    <input type="checkbox" name="info" value="2">
+                    Child Poverty
+                </label><br>
+                <label>
+                    <input type="checkbox" name="info" value="3">
+                    Children's Services(X)
+                </label><br>
+                <label>
+                    <input type="checkbox" name="info" value="4">
+                    Crime
+                </label><br>
+                <label>
+                    <input type="checkbox" name="info" value="5">
+                    Education(X)
+                </label><br>
+                <label>
+                    <input type="checkbox" name="info" value="6">
+                    Healthy Lifestyles(X)
+                </label><br>
+                <label>
+                    <input type="checkbox" name="info" value="7">
+                    Health and Disability (Census)(X)
+                </label><br>
+                <label>
+                    <input type="checkbox" name="info" value="8">
+                    Life Expectancy
+                </label><br>
+                <label>
+                    <input type="checkbox" name="info" value="9">
+                    Premature Mortality
+                </label><br>
+                <label>
+                    <input type="checkbox" name="info" value="10">
+                    Car Availability (Census)
+                </label><br>
+                <label>
+                    <input type="checkbox" name="info" value="11">
+                    Household Composition (Census)
+                </label><br>
+                <label>
+                    <input type="checkbox" name="info" value="12">
+                    House Prices(X)
+                </label><br>
+                <label>
+                    <input type="checkbox" name="info" value="13">
+                    Household Size (Census)
+                </label><br>
+                <label>
+                    <input type="checkbox" name="info" value="14">
+                    Housing Tenure (Census)
+                </label><br>
+                <label>
+                    <input type="checkbox" name="info" value="15">
+                    Housing Type (Census)
+                </label><br>
+                <label>
+                    <input type="checkbox" name="info" value="16">
+                    Benefits(X)
+                </label><br>
+                <label>
+                    <input type="checkbox" name="info" value="17">
+                    Industry and Occupation (Census)
+                </label><br>
+                <label>
+                    <input type="checkbox" name="info" value="18">
+                    Jobs located in the ward
+                </label><br>
+                <label>
+                    <input type="checkbox" name="info" value="19">
+                    Qualifications (Census)
+                </label><br>
+                <label>
+                    <input type="checkbox" name="info" value="20">
+                    Country of Birth (Census)
+                </label><br>
+                <label>
+                    <input type="checkbox" name="info" value="21">
+                    Deprivation(X)
+                </label><br>
+                <label>
+                    <input type="checkbox" name="info" value="22">
+                    Ethnicity (Census)
+                </label><br>
+                <label>
+                    <input type="checkbox" name="info" value="23">
+                    Languange (Census)
+                </label><br>
+                <label>
+                    <input type="checkbox" name="info" value="24">
+                    Population Trend & Age Profile
+                </label><br>
+                <label>
+                    <input type="checkbox" name="info" value="25">
+                    Population Overview
+                </label><br>
+                <label>
+                    <input type="checkbox" name="info" value="26">
+                    Religion (Census)
+                </label><br>
+                <label>
+                    <input type="checkbox" name="info" value="27">
+                    Quality of life (all indicators)(X)
+                </label><br>
+                <label>
+                    <input type="checkbox" name="info" value="28">
+                    Quality of Life (priority indicators)(X)
+                </label><br>
+
+                <button type="submit" style="font-size:25px; background-color:light-gray;">SUBMIT</button>
+
+            </form>
+
+        </main>
+    </div>
+
+</div>
+
+<script>
+    const params = new URLSearchParams(window.location.search);
+    const ward = params.get("ward");
+
+    document.getElementById("wardInput").value = ward;
+
+    console.log("Ward received:", ward);
+</script>
+
+</body>
+
+</html>
