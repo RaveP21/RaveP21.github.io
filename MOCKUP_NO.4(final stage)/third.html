@@ -4,7 +4,7 @@
 
     <title>Ward Finder</title>
 
-    <link rel="stylesheet" href="forth.css">
+    <link rel="stylesheet" href="third.css">
 
 </head>
 
@@ -25,10 +25,10 @@
     <div class="box2">
         <header>
 
-            <h1>Select Topics</h1>
+            <h1>Rank ward by Topic</h1>
 
             <span id="search">
-<form action="sixth.html" method="get">
+            <form action="sixth.html" method="get">
           <input type="text" name="search" placeholder="Search...">
 
           <button type="submit">CLICK</button>
@@ -55,9 +55,19 @@
     <div class="box4">
         <main>
 
+            <div>
 
-            <form class="checklist" action="seventh.html" method="get">
-                <input type="hidden" name="ward" id="wardInput">
+                <form action="second.html" method="get">
+                    <input type="hidden" name="role" id="Role">
+
+                    <button style="font-size:10px; background-color:#D3D3D3" type="submit">MAP</button>
+                </form>
+
+                <a href="third.html"><button style="font-size:10px; background-color:gray">Rank Ward By Tag</button></a>
+
+            </div>
+
+            <form class="checklist" action="fifth.html" method="get">
                 <label>
                     <input type="checkbox" name="info" value="1">
                     Adult Social Care
@@ -68,7 +78,7 @@
                 </label><br>
                 <label>
                     <input type="checkbox" name="info" value="3">
-                    Children's Services(X)
+                    Children's Services
                 </label><br>
                 <label>
                     <input type="checkbox" name="info" value="4">
@@ -76,15 +86,15 @@
                 </label><br>
                 <label>
                     <input type="checkbox" name="info" value="5">
-                    Education(X)
+                    Education
                 </label><br>
                 <label>
                     <input type="checkbox" name="info" value="6">
-                    Healthy Lifestyles(X)
+                    Healthy Lifestyles
                 </label><br>
                 <label>
                     <input type="checkbox" name="info" value="7">
-                    Health and Disability (Census)(X)
+                    Health and Disability (Census)
                 </label><br>
                 <label>
                     <input type="checkbox" name="info" value="8">
@@ -102,10 +112,7 @@
                     <input type="checkbox" name="info" value="11">
                     Household Composition (Census)
                 </label><br>
-                <label>
-                    <input type="checkbox" name="info" value="12">
-                    House Prices(X)
-                </label><br>
+<!--                number 12 was removes as housing prices was not part of open data bristol*/-->
                 <label>
                     <input type="checkbox" name="info" value="13">
                     Household Size (Census)
@@ -118,10 +125,7 @@
                     <input type="checkbox" name="info" value="15">
                     Housing Type (Census)
                 </label><br>
-                <label>
-                    <input type="checkbox" name="info" value="16">
-                    Benefits(X)
-                </label><br>
+<!--                number 16 was removed as benefits wasn't in open data bristol*/-->
                 <label>
                     <input type="checkbox" name="info" value="17">
                     Industry and Occupation (Census)
@@ -136,12 +140,9 @@
                 </label><br>
                 <label>
                     <input type="checkbox" name="info" value="20">
-                    Country of Birth (Census)
+                  Country of Birth (Census)
                 </label><br>
-                <label>
-                    <input type="checkbox" name="info" value="21">
-                    Deprivation(X)
-                </label><br>
+<!--                number 21 was removed as Deprivation was in the the open data bristol in a relyable way*/-->
                 <label>
                     <input type="checkbox" name="info" value="22">
                     Ethnicity (Census)
@@ -164,16 +165,14 @@
                 </label><br>
                 <label>
                     <input type="checkbox" name="info" value="27">
-                    Quality of life (all indicators)(X)
+                    Quality of life (all indicators)
                 </label><br>
-                <label>
-                    <input type="checkbox" name="info" value="28">
-                    Quality of Life (priority indicators)(X)
-                </label><br>
+<!--                number 28 was removed as it was not part of any dataset/we had already taken the dataset for 27*//-->
 
                 <button type="submit" style="font-size:25px; background-color:light-gray;">SUBMIT</button>
 
             </form>
+
 
         </main>
     </div>
@@ -181,12 +180,27 @@
 </div>
 
 <script>
-    const params = new URLSearchParams(window.location.search);
-    const ward = params.get("ward");
+    const params = new URLSearchParams(window.location.search);  //reads the full url
+    const role = params.get("role"); //extracts the role
 
-    document.getElementById("wardInput").value = ward;
+    console.log("user role:", role);  //storing ti for later use frfr
+    window.userRole = role; //making it global
+    document.getElementById("Role").value = role;
+    function selectWard(ward) {
+        window.location.href = `forth.html?role=${role}&ward=${ward}`;
+    }
 
-    console.log("Ward received:", ward);
+    //after extraction you use it by doign this
+    if (windows.userRole === "Mover") {
+           //display MOVER SUGGESTIONS
+    }
+    if (windows.userRole === "Business") {
+           //display BUSINESS SUGGESTIONS
+    }
+    if (windows.userRole === "Client") {
+           //display CLIENT SUGGESTIONS
+    }
+
 </script>
 
 </body>

@@ -1,0 +1,251 @@
+<html>
+
+<head>
+
+    <title>Ward Finder</title>
+
+    <link rel="stylesheet" href="seventh.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>  //you need this to make a graph in javaScript aah
+    <script>
+
+        const tagToQuery = {  //this is adding all the API urls
+        "1": "https://maps2.bristol.gov.uk/server2/rest/services/ext/ward_profiles/MapServer/1/query?where=1%3D1&outFields=WARD_CODE,WARD_NAME,SOCIAL_CARE_TYPE,PERIOD,NUM_SERVICE_USERS,AVG_WEEKLY_COST&outSR=4326&f=json",
+
+        "2": "https://maps2.bristol.gov.uk/server2/rest/services/ext/ward_profiles/MapServer/3/query?where=1%3D1&outFields=*&outSR=4326&f=json",
+
+        "3": "https://maps2.bristol.gov.uk/server2/rest/services/ext/ward_profiles/MapServer/4/query?where=1%3D1&outFields=WARD_CODE,WARD_NAME,PERIOD,MID_YEAR_POP_EST_0_17,TOTAL_CHILDREN_SOCIAL_CARE_NUM&outSR=4326&f=json",
+
+        "4": "https://maps2.bristol.gov.uk/server2/rest/services/ext/ward_profiles/MapServer/6/query?where=1%3D1&outFields=*&outSR=4326&f=json",
+
+        "5": "https://maps2.bristol.gov.uk/server2/rest/services/ext/ward_profiles/MapServer/18/query?where=1%3D1&outFields=*&outSR=4326&f=json",
+
+        "6": "https://maps2.bristol.gov.uk/server2/rest/services/ext/ward_profiles/MapServer/13/query?where=1%3D1&outFields=WARD_CODE,WARD_NAME,NOLONGTRM_HEALTH_CONDITIONS,PCNOLONGTRM_HEALTH_CONDITIONS&outSR=4326&f=json",
+
+        "7": "https://maps2.bristol.gov.uk/server2/rest/services/ext/ward_profiles/MapServer/13/query?where=1%3D1&outFields=WARD_CODE,WARD_NAME,TOTAL_RES_POP_DISABILITY,DISABLED_UNDER_EQUALITY_ACT,PCDISABLED_UNDER_EQUALITY_ACT&outSR=4326&f=json",
+
+        "8": "https://maps2.bristol.gov.uk/server2/rest/services/ext/ward_profiles/MapServer/19/query?where=1%3D1&outFields=WARD_CODE,WARD_NAME,GENDER,PERIOD,LIFE_EXPECTANCY_YEARS&outSR=4326&f=json",
+
+        "9": "https://maps2.bristol.gov.uk/server2/rest/services/ext/ward_profiles/MapServer/22/query?where=1%3D1&outFields=WARD_CODE,WARD_NAME,PREMATURE_MORTALITY_TYPE,PERIOD,WARD_STATISTIC_RATE&outSR=4326&f=json",
+
+        "10": "https://maps2.bristol.gov.uk/server2/rest/services/ext/ward_profiles/MapServer/15/query?where=1%3D1&outFields=WARD_CODE,WARD_NAME,ALL_HH_CAR_AVAIL,NO_CARS_VANS_IN_HH,CAR_VAN_IN_HH_1,CAR_VAN_IN_HH_2,CAR_VAN_IN_HH_3,PC_TOTAL_UNDEROCC_RATING_BED,PC_NO_CARS_VANS_IN_HH,PC_CAR_VAN_IN_HH_1,PC_CAR_VAN_IN_HH_2,PC_CAR_VAN_IN_HH_3&outSR=4326&f=json",
+
+        "11": "https://maps2.bristol.gov.uk/server2/rest/services/ext/ward_profiles/MapServer/14/query?where=1%3D1&outFields=WARD_CODE,WARD_NAME,ALL_HOUSEHOLDS,ONE_PERSON_HH_TOTAL,SNGLFAM_HH_TOTAL,MULTFAM_HH_TOTAL,PC_ONE_PERSON_HH_TOTAL,PC_SNGLFAM_HH_TOTAL,PC_TOTAL_HH_DEP_CHILDREN,PC_MULTFAM_HH_TOTAL,TOTAL_HH_DEP_CHILDREN&outSR=4326&f=json",
+
+        "12": "Housing price data not available",
+
+        "13": "https://maps2.bristol.gov.uk/server2/rest/services/ext/ward_profiles/MapServer/15/query?where=1%3D1&outFields=WARD_CODE,WARD_NAME,TOTAL_HOUSEHOLDS_ACCOMM_TYPE,BEDROOM_1,BEDROOM_2,BEDROOM_3,BEDROOM_4_MORE,TOTAL_UNDEROCC_RATING_BED,TOTAL_OVERC_OCC_RATING_BED,PC_BEDROOM_1,PC_BEDROOM_2,PC_BEDROOM_3,PC_BEDROOM_4_MORE,PC_TOTAL_UNDEROCC_RATING_BED,PC_TOTAL_OVERC_OCC_RATING_BED&outSR=4326&f=json",
+
+        "14": "https://maps2.bristol.gov.uk/server2/rest/services/ext/ward_profiles/MapServer/15/query?where=1%3D1&outFields=WARD_CODE,WARD_NAME,TOTAL_HOUSEHOLDS_ACCOMM_TYPE,TOTAL_OWNED,TOTAL_SOCIAL_RENTED,TOTAL_PRIVATE_RENTED_OTHER,PC_TOTAL_OWNED,PC_TOTAL_SOCIAL_RENTED,PC_TOTAL_PRIVATE_RENTED_OTHER&outSR=4326&f=json",
+
+        "15": "https://maps2.bristol.gov.uk/server2/rest/services/ext/ward_profiles/MapServer/15/query?where=1%3D1&outFields=WARD_CODE,WARD_NAME,TOTAL_HOUSEHOLDS_ACCOMM_TYPE,WHOLE_HOUSE_DETACHED,WHOLE_HOUSE_SEMI,WHOLE_HOUSE_TERRACED,FLATS_TOTAL,PC_WHOLE_HOUSE_DETACHED,PC_WHOLE_HOUSE_SEMI,PC_WHOLE_HOUSE_TERRACED,PC_FLATS_TOTAL&outSR=4326&f=json",
+
+        "16": "Benefits data not available",
+
+        "17": "https://maps2.bristol.gov.uk/server2/rest/services/ext/ward_profiles/MapServer/11/query?where=1%3D1&outFields=*&outSR=4326&f=json",
+
+        "18": "https://maps2.bristol.gov.uk/server2/rest/services/ext/ward_profiles/MapServer/17/query?where=1%3D1&outFields=*&outSR=4326&f=json",
+
+        "19": "https://maps2.bristol.gov.uk/server2/rest/services/ext/ward_profiles/MapServer/28/query?where=1%3D1&outFields=*&outSR=4326&f=json",
+
+        "20": "https://maps2.bristol.gov.uk/server2/rest/services/ext/ward_profiles/MapServer/16/query?where=1%3D1&outFields=WARD_CODE,WARD_NAME,TOTAL_USUALLY_RES_IDENTITY,BORN_OUTSIDE_UK,UNITED_KINGDOM,EU_COUNTRIES,OTHER_EUROPE,AFRICA,MIDDLE_EAST_AND_ASIA,AMERICAS_CARIBBEAN,ANTARCTICA_OCEANIA_OTHER,PC_BORN_OUTSIDE_UK,PC_UNITED_KINGDOM,PC_EU_COUNTRIES,PC_OTHER_EUROPE,PC_AFRICA,PC_MIDDLE_EAST_AND_ASIA,PC_AMERICAS_CARIBBEAN,PC_ANTARCTICA_OCEANIA_OTHER&outSR=4326&f=json",
+
+        "21": "Deprivation data not available",
+
+        "22": "https://maps2.bristol.gov.uk/server2/rest/services/ext/ward_profiles/MapServer/16/query?where=1%3D1&outFields=WARD_CODE,WARD_NAME,TOTAL_RES_POP_ETHNIC_GROUP,WHITE_TOTAL,BAME_GROUP_TOTAL,ASIAN_BANGLADESHI,ASIAN_CHINESE,ASIAN_INDIAN,ASIAN_PAKISTANI,ASIAN_OTHER,BLACK_AFRICAN,BLACK_CARIBBEAN,BLACK_OTHER,MULT_WHITE_ASIAN,MULT_WH_BL_AFRCAN,MULT_WH_BL_CARIBBEAN,MULT_OTHER,WHITE_BRITISH,WHITE_IRISH,WHITE_GYPSY_TRAV,WHITE_ROMA,WHITE_OTHER,OTHER_ARAB,ANY_OTHER_ETHNIC_GROUP,PC_WHITE_TOTAL,PC_BAME_GROUP_TOTAL,PC_ASIAN_BANGLADESHI,PC_ASIAN_CHINESE,PC_ASIAN_INDIAN,PC_ASIAN_PAKISTANI,PC_ASIAN_OTHER,PC_BLACK_AFRICAN,PC_BLACK_CARIBBEAN,PC_BLACK_OTHER,PC_MULT_WHITE_ASIAN,PC_MULT_WH_BL_AFRICAN,PC_MULT_WH_BL_CARIBBEAN,PC_MULT_OTHER,PC_WHITE_BRITISH,PC_WHITE_IRISH,PC_WHITE_GYPSY_TRAV,PC_WHITE_ROMA,PC_WHITE_OTHER,PC_OTHER_ARAB,PC_ANY_OTHER_ETHNIC_GROUP&outSR=4326&f=json",
+
+        "23": "https://maps2.bristol.gov.uk/server2/rest/services/ext/ward_profiles/MapServer/16/query?where=1%3D1&outFields=WARD_CODE,WARD_NAME,ALL_PPL_3_OVER_LANGUAGE,MAIN_LANG_ENGLISH,MAIN_LANG_NOT_ENGLISH,MAIN_LANG_NOT_ENG_VERY_WELL,MAIN_LANG_NOT_ENG_WELL,MAIN_LANG_NOT_ENG_NOT_WELL,MAIN_LANG_NOT_ENG_CANT,PC_MAIN_LANG_ENGLISH,PC_MAIN_LANG_NOT_ENGLISH,PC_MAIN_LANG_NOT_ENG_V_WELL,PC_MAIN_LANG_NOT_ENG_WELL,PC_MAIN_LANG_NOT_ENG_NOT_WELL,PC_MAIN_LANG_NOT_ENG_CANT&outSR=4326&f=json",
+
+        "24": "https://maps2.bristol.gov.uk/server2/rest/services/ext/ward_profiles/MapServer/34/query?where=1%3D1&outFields=*&outSR=4326&f=json",
+
+        "25": "https://maps2.bristol.gov.uk/server2/rest/services/ext/ward_profiles/MapServer/34/query?where=1%3D1&outFields=*&outSR=4326&f=json",
+
+        "26": "https://maps2.bristol.gov.uk/server2/rest/services/ext/ward_profiles/MapServer/16/query?where=1%3D1&outFields=WARD_CODE,WARD_NAME,TOT_RES_POP_RELIGION,NO_RELIGION,CHRISTIAN,BUDDHIST,HINDU,JEWISH,MUSLIM,SIKH,OTHER_RELIGION,NOT_ANSWERED,PC_NO_RELIGION,PC_CHRISTIAN,PC_BUDDHIST,PC_HINDU,PC_JEWISH,PC_MUSLIM,PC_SIKH,PC_OTHER_RELIGION,PC_NOT_ANSWERED&outSR=4326&f=json",
+
+        "27": "https://services2.arcgis.com/a4vR8lmmksFixzmB/arcgis/rest/services/Bristol_Quality_of_Life_data_(2024_25)/FeatureServer/0/query?where=1%3D1&outFields=Public_Title,Bristol_average,Sample_Size,Ward_name,Ward_e_codes,Year&outSR=4326&f=json"
+    };
+
+
+        function query() {
+
+            const params = new URLSearchParams(window.location.search); //this reads the url data
+            const selectedWard = params.get("ward"); //this strips the url data to get ward data
+            const selectedTags = params.getAll("info");  //this strips the url data to get info data
+
+            const main = document.querySelector("main");  //this connects the <script> with main
+
+            selectedTags.forEach(tag => {   //this is basically "for each url do this"
+
+                const url = tagToQuery[tag];
+
+                if (!url) {                //if url is not valid it just says no dataset, the tag
+                    console.log("No dataset for tag:", tag);
+                    return;
+                }
+
+                fetch(url)                //this is where the actual getting API data happens
+                    .then(res => res.json())       //turns the url into .json format
+                    .then(data => {                //this send the collected data to "displayGraphs" with the tag,data,main and selelcted ward data
+                    displayGraphs(tag, data, main, selectedWard);
+                    })
+                    .catch(err => console.error(err)); //this just catches any issues/errors and just does counsole.error(err)
+
+            });
+        }
+
+        function displayGraphs(tag, data, main, selectedWard) {   //This is the actual FUNCTION that the collected data is gana be used in
+
+            const container = document.createElement("div");    //this creates a <div></div> for later implimentation using .appendChild()
+            const chartRow = document.createElement("div");     //this creates a <div></div> for later implimentation using .appendChild()
+            chartRow.style.display = "flex";
+            chartRow.style.gap = "20px";          // space between graphs
+            chartRow.style.alignItems = "center"; // vertical alignment
+
+            const title = document.createElement("h2");         //this creats a <h2></h2> for later implimentation using .appendChild()
+            title.textContent = "Tag " + tag + " (" + selectedWard + ")";  //this defines what the title looks like
+            container.appendChild(title);                      // this is the big part. here the title gets put in the container
+
+            const features = data.features;                    //assigning data.features to the name "features"
+
+            if (!features || features.length === 0) {                         //if features not found or === 0, kill it
+                container.appendChild(document.createTextNode("No data"));
+                main.appendChild(container);
+                return;
+            }
+
+            const filtered = features.filter(f => {    //this takes the full data and filters it with just the ward (this filtering has issues with dataset 11
+                const a = f.attributes;
+                return a.WARD_NAME === selectedWard || a.WARD === selectedWard;
+            });
+
+            if (filtered.length === 0) {                                                      //kill it if nothing comes witht he filtering
+                container.appendChild(document.createTextNode("No data for this ward"));
+                main.appendChild(container);
+                return;
+            }
+
+            const attributes = filtered[0].attributes;      //idk what this does
+
+            const labels = [];
+            const values = [];
+
+            for (let key in attributes) {
+                if (typeof attributes[key] === "number") {
+                    labels.push(key);
+                    values.push(attributes[key]);
+                }
+            }
+
+            const finalLabels = labels.slice(0, 6);  // LIMIT so charts don’t explode
+            const finalValues = values.slice(0, 6);
+
+
+            const barCanvas = document.createElement("canvas"); // This is the first step in making the bar charts
+
+            barCanvas.width = 600;   // this sets the size
+            barCanvas.height = 400;
+
+            new Chart(barCanvas, {    //using the previously defined "barCanvas" in line 142 (above the size changer) actually defining what the chat looks like
+                type: 'bar',
+                data: {
+                    labels: finalLabels,
+                    datasets: [{
+                        label: 'Values',
+                        data: finalValues
+                    }]
+                },
+                options: {
+                    responsive: false   // this is to make the sizing possible
+                }
+            });
+
+            const pieCanvas = document.createElement("canvas");  // This is the first step in making the bar charts
+
+
+            pieCanvas.width = 500;   // this sets the size
+            pieCanvas.height = 300;
+
+            new Chart(pieCanvas, {   //using the previously defined "pieCanvas" in line 161 (above the size changer) actually defining what the chat looks like
+                type: 'pie',
+                data: {
+                    labels: finalLabels,
+                    datasets: [{
+                        data: finalValues
+                    }]
+                },
+                options: {
+                    responsive: false   // this is to make the sizing possible
+                }
+            });
+            chartRow.appendChild(barCanvas);  //this puts the "barCanvas" in the chartRow box
+            chartRow.appendChild(pieCanvas);  //this puts the "pieCanvas" in the chartRow box
+
+            container.appendChild(chartRow);  //finally this put the "chatRow" box in the container box
+            main.appendChild(container);      //finally finally this put this "container" box in the main where it is displayed
+        }
+    </script>
+
+</head>
+
+<body>
+
+<div id="container">
+
+
+    <div class="box1">
+        <logo>
+
+            <a href="second.html"><img src="1.jpg" width="100"; hight="100;"></a>
+
+        </logo>
+    </div>
+
+
+    <div class="box2">
+        <header>
+
+            <h1>Ward Info</h1>
+
+            <span id="search">
+
+          <form action="sixth.html" method="get">
+          <input type="text" name="search" placeholder="Search...">
+
+          <button type="submit">CLICK</button>
+            </form>
+
+
+        </span>
+
+        </header>
+    </div>
+
+    <div class="box3">
+        <nav>
+
+            <button style="font-size:10px; background-color:#FFCAA4">1st option</button>
+
+            <button style="font-size:10px; background-color:#FFCAA4">2nd option</button>
+
+            <button style="font-size:10px; background-color:#FFCAA4">3rd option</button>
+            <a href="first.html"><button style="font-size:10px; background-color:#FFCAA4">Role selection</button> </a>
+
+
+        </nav>
+    </div>
+
+    <div class="box4">
+        <main>
+
+
+
+        </main>
+    </div>
+
+
+</div>
+
+
+<script>query();</script>
+</body>
+
+</html>
