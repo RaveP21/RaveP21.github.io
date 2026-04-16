@@ -5,7 +5,8 @@
     <title>Ward Finder</title>
 
     <link rel="stylesheet" href="seventh.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>  //you need this to make a graph in javaScript aah
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<!--    you need this to make a graph in javaScript aah-->
     <script>
 
         const tagToQuery = {  //this is adding all the API urls
@@ -141,7 +142,7 @@
 
             const barCanvas = document.createElement("canvas"); // This is the first step in making the bar charts
 
-            barCanvas.width = 600;   // this sets the size
+            barCanvas.width = 800;   // this sets the size
             barCanvas.height = 400;
 
             new Chart(barCanvas, {    //using the previously defined "barCanvas" in line 142 (above the size changer) actually defining what the chat looks like
@@ -215,22 +216,22 @@
 
 
         </span>
+            <nav>
+
+                <button style="font-size:10px; background-color:#FFCAA4">1st option</button>
+
+                <button style="font-size:10px; background-color:#FFCAA4">2nd option</button>
+
+                <a href="first.html"><button style="font-size:10px; background-color:#FFCAA4">Role selection</button> </a>
+
+
+            </nav>
 
         </header>
     </div>
 
     <div class="box3">
-        <nav>
-
-            <button style="font-size:10px; background-color:#FFCAA4">1st option</button>
-
-            <button style="font-size:10px; background-color:#FFCAA4">2nd option</button>
-
-            <button style="font-size:10px; background-color:#FFCAA4">3rd option</button>
-            <a href="first.html"><button style="font-size:10px; background-color:#FFCAA4">Role selection</button> </a>
-
-
-        </nav>
+<!--        box 3 no longer in use, nav moved to header-->
     </div>
 
     <div class="box4">

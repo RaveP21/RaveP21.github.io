@@ -11,9 +11,9 @@ grid-template-columns: 200px 1fr 1fr;
   grid-template-areas:
 
     'l h h h '
-    'n m m m '
-    'n m m m '
-    'n m m m ';
+    'm m m m '
+    'm m m m '
+    'm m m m ';
 
   gap: 10px;
 
@@ -54,7 +54,7 @@ nav {
 
   grid-area: n;
   display: flex;
-    flex-direction: column;
+    flex-direction: rows;
     gap: 10px;
     padding: 10px;
 
@@ -65,7 +65,7 @@ nav {
 /* Align button text to left inside nav */
 
 nav button {
-     width: 100%;
+     width: 100;
      text-align: left;
      padding: 10px;
 }
@@ -96,7 +96,7 @@ main {
     grid-area: m;
     Background-color: #bae1ff;
 }
-nav { overflow: auto; }
+
 main { overflow: auto; }
 
 
