@@ -106,3 +106,53 @@ main { overflow: auto; }
   grid-template-rows: repeat(1, auto);
   gap: 10px;
 }
+
+/* Page layout */
+#container {
+    width: 100%;
+    min-height: 100vh;
+}
+
+/* Main results area */
+#resultsContainer {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 15px;
+}
+
+/* Each ward box */
+.wardBox {
+    background-color: #FFCAA4;
+    border-radius: 12px;
+    padding: 12px;
+    text-align: left;
+
+    min-height: 80px;
+    height: auto;
+}
+
+
+/* Ward title */
+.wardBox h3 {
+    margin: 0;
+    font-size: 14px;
+}
+
+/* Ward code */
+.wardBox p {
+    margin: 5px 0 0;
+    font-size: 12px;
+    opacity: 0.8;
+}
+
+#resultsContainer form {
+    margin: 0;
+}
+
+#resultsContainer button {
+    all: unset;
+    display: block;
+    width: 100%;
+    cursor: pointer;
+}

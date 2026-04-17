@@ -8,8 +8,25 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <!--    you need this to make a graph in javaScript aah-->
     <script>
+        //this page's url has "selected ward" and "selected tags" the selected tags are used to call the assigned API url,
+        // while the selected ward get used to sort through those datasets to only display data with this ward name
+        // problem: for a few of them (wards names), no data is showing up
+        // test: tried to api call, all the data for, all tags under the ward name
+        // result: data showed up for some tags (datasets)
+        // conclusion: the system works, the datasets that didn't show any data must have named the wards weirdly/ in a different way
+        // solution: maybe it is better to use Ward_Code instead of Ward_Name.
+        // to do that, we would have to change what the "MAP" clicks and the "search clicks" send.
+        // instead of them sending "Ward_Name" we need them to send "Ward_Code"
+        // extra: page 5 does not have this issue as it is not sorted by ward name at all, it doesn't even get any ward data to begin with
 
-        const tagToQuery = {  //this is adding all the API urls
+
+        // the graphs displayed on this page at the moment are "placeholders" showing only the fact that;
+        // the code up to pulling the right data from the right dataset, and sorted---WORKS
+        // but what we do with the .data, is upto you.
+        // each dataset would have to be noted down for what data we would like to show from them on graphs.
+
+
+        const pissbot = {  //this is adding all the API urls and assigns them to (1,2,3...27) cuz chosen tags return "info=1,info=2,...info=27"
         "1": "https://maps2.bristol.gov.uk/server2/rest/services/ext/ward_profiles/MapServer/1/query?where=1%3D1&outFields=WARD_CODE,WARD_NAME,SOCIAL_CARE_TYPE,PERIOD,NUM_SERVICE_USERS,AVG_WEEKLY_COST&outSR=4326&f=json",
 
         "2": "https://maps2.bristol.gov.uk/server2/rest/services/ext/ward_profiles/MapServer/3/query?where=1%3D1&outFields=*&outSR=4326&f=json",
@@ -76,24 +93,19 @@
 
             selectedTags.forEach(tag => {   //this is basically "for each url do this"
 
-                const url = tagToQuery[tag];
-
-                if (!url) {                //if url is not valid it just says no dataset, the tag
-                    console.log("No dataset for tag:", tag);
-                    return;
-                }
+                const url = pissbot[tag];
 
                 fetch(url)                //this is where the actual getting API data happens
                     .then(res => res.json())       //turns the url into .json format
-                    .then(data => {                //this send the collected data to "displayGraphs" with the tag,data,main and selelcted ward data
-                    displayGraphs(tag, data, main, selectedWard);
+                    .then(data => {                //this send the collected data to "graphNdShi" with the tag,data,main and selelcted ward data
+                    graphNdShi(tag, data, main, selectedWard);
                     })
                     .catch(err => console.error(err)); //this just catches any issues/errors and just does counsole.error(err)
 
             });
         }
 
-        function displayGraphs(tag, data, main, selectedWard) {   //This is the actual FUNCTION that the collected data is gana be used in
+        function graphNdShi(tag, data, main, selectedWard) {   //This is the actual FUNCTION that the collected data is gana be used in
 
             const container = document.createElement("div");    //this creates a <div></div> for later implimentation using .appendChild()
             const chartRow = document.createElement("div");     //this creates a <div></div> for later implimentation using .appendChild()
@@ -107,24 +119,19 @@
 
             const features = data.features;                    //assigning data.features to the name "features"
 
-            if (!features || features.length === 0) {                         //if features not found or === 0, kill it
-                container.appendChild(document.createTextNode("No data"));
-                main.appendChild(container);
-                return;
-            }
 
-            const filtered = features.filter(f => {    //this takes the full data and filters it with just the ward (this filtering has issues with dataset 11
+            const filtered = features.filter(f => {    //this takes the full data and filters it with just the ward (this filtering has issues with dataset 11 as it is names different in it)
                 const a = f.attributes;
                 return a.WARD_NAME === selectedWard || a.WARD === selectedWard;
             });
 
-            if (filtered.length === 0) {                                                      //kill it if nothing comes witht he filtering
+            if (filtered.length === 0) {                                                      //this is really helpful rn as this shows which datasets are not accessable for some reason
                 container.appendChild(document.createTextNode("No data for this ward"));
                 main.appendChild(container);
                 return;
             }
 
-            const attributes = filtered[0].attributes;      //idk what this does
+            const attributes = filtered[0].attributes;      //idk wtf this does from line 117 to line 130, again i think it is something to do with "what data the graphs end up using"
 
             const labels = [];
             const values = [];
@@ -136,17 +143,17 @@
                 }
             }
 
-            const finalLabels = labels.slice(0, 6);  // LIMIT so charts don’t explode
+            const finalLabels = labels.slice(0, 6);
             const finalValues = values.slice(0, 6);
 
 
-            const barCanvas = document.createElement("canvas"); // This is the first step in making the bar charts
+            const barCanvas = document.createElement("canvas"); // gotto have the "canvas" before making graphs
 
             barCanvas.width = 800;   // this sets the size
             barCanvas.height = 400;
 
-            new Chart(barCanvas, {    //using the previously defined "barCanvas" in line 142 (above the size changer) actually defining what the chat looks like
-                type: 'bar',
+            new Chart(barCanvas, {    //using the previously defined "barCanvas" in line 133 (above the size changer) actually defining what the chat looks like
+                type: 'bar',        //type in any kinda graph we need fr
                 data: {
                     labels: finalLabels,
                     datasets: [{
@@ -155,18 +162,18 @@
                     }]
                 },
                 options: {
-                    responsive: false   // this is to make the sizing possible
+                    responsive: false   // this is to make the sizing possible, idk why without this sizing change doesn't work
                 }
             });
 
-            const pieCanvas = document.createElement("canvas");  // This is the first step in making the bar charts
+            const pieCanvas = document.createElement("canvas");  // canvas uwu
 
 
             pieCanvas.width = 500;   // this sets the size
             pieCanvas.height = 300;
 
-            new Chart(pieCanvas, {   //using the previously defined "pieCanvas" in line 161 (above the size changer) actually defining what the chat looks like
-                type: 'pie',
+            new Chart(pieCanvas, {   //using the previously defined "pieCanvas" in line 152 (above the size changer) actually defining what the chat looks like
+                type: 'pie',    //type in any kinda graphs we need fr
                 data: {
                     labels: finalLabels,
                     datasets: [{

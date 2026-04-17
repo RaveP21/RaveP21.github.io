@@ -6,6 +6,132 @@
 
     <link rel="stylesheet" href="sixth.css">
 
+    <script>
+
+        const wordsfrfr = {                                //proud of tis system UvU, only works if the words are typed tho but it is what it is, ion wana overcomplicate it
+            "Avonmouth & Lawrence Weston": ["unsafe","busy","north","cheap","family"],
+            "Stoke Bishop": ["safe","green","north","expensive","family"],
+            "Henbury & Brentry": ["safe","quiet","north","moderate","family"],
+            "Bishopsworth": ["safe","quiet","south","moderate","family"],
+            "Hartcliffe & Withywood": ["unsafe","quiet","south","cheap","family"],
+            "Frome Vale": ["safe","quiet","east","moderate","family"],
+            "Horfield": ["safe","busy","north","moderate","student"],
+            "Hengrove & Whitchurch Park": ["safe","quiet","south","moderate","family"],
+            "Clifton": ["safe","busy","central","expensive","student"],
+            "Clifton Down": ["safe","quiet","central","expensive","student"],
+            "Eastville": ["unsafe","busy","east","cheap","family"],
+            "Hillfields": ["unsafe","quiet","east","cheap","family"],
+            "Stockwood": ["safe","quiet","south","moderate","family"],
+            "Bedminster": ["safe","busy","south","moderate","mixed"],
+            "Southville": ["safe","busy","south","expensive","student"],
+            "Filwood": ["unsafe","quiet","south","cheap","family"],
+            "Windmill Hill": ["safe","quiet","south","expensive","family"],
+            "Knowle": ["safe","quiet","south","moderate","family"],
+            "Westbury-on-Trym & Henleaze": ["safe","quiet","north","expensive","family"],
+            "Southmead": ["unsafe","busy","north","cheap","family"],
+            "Redland": ["safe","quiet","north","expensive","student"],
+            "Bishopston & Ashley Down": ["safe","busy","north","expensive","student"],
+            "Cotham": ["safe","busy","central","expensive","student"],
+            "Ashley": ["unsafe","busy","central","cheap","student"],
+            "Lawrence Hill": ["unsafe","busy","central","cheap","mixed"],
+            "Lockleaze": ["unsafe","quiet","north","cheap","family"],
+            "Easton": ["safe","busy","central","moderate","family"],
+            "Brislington West": ["unsafe","busy","south","moderate","mixed"],
+            "Hotwells & Harbourside": ["safe","busy","central","expensive","mixed"],
+            "Central": ["unsafe","busy","central","expensive","student"],
+            "St George West": ["safe","busy","east","moderate","family"],
+            "Brislington East": ["safe","quiet","east","moderate","family"],
+            "St George Troopers Hill": ["safe","green","east","moderate","family"],
+            "St George Central": ["safe","busy","east","moderate","family"]
+        };
+
+        function pizza() {                                              //for editing wtf u searched to make it useful
+            const params = new URLSearchParams(window.location.search); //collects the full url
+            const search = params.get("search") || "";                  //gets the search and if it is null sends " "
+            return search.toLowerCase().split(" ").filter(word => word);//turns the search into lower case to match the keywords and
+        }                                                               //turns the search into an array of the words while filter, filters out any " " values
+
+        function calculateScore(wardName, keywords, searchTerms) {      //this takes all the ward names, their key words and the searchTerms
+            let score = 0;
+
+            searchTerms.forEach(term => {
+                if (wardName.toLowerCase().includes(term)) {            //takes the wardNames, compares it to the search term to see if any ward names were mentioned
+                    score += 5;                                         //if so, gives those wards +5 points
+                }
+
+                keywords.forEach(k => {                                 //this is a hardwired step where, if term is mentioned, and the wards that have that term, gets +3 points
+                    if (k === term) {                                   //gotto make it better with more keyWords and more flexibility of what "searchTerms" are good enough for +3
+                        score += 3;
+                    }
+                });
+            });
+
+            return score;
+        }
+
+        function query() {                        //ward name and code dataset
+            const url = "https://maps2.bristol.gov.uk/server2/rest/services/ext/ll_boundaries/MapServer/4/query?where=1%3D1&outFields=NAME,WARD_ID&outSR=4326&f=json";
+
+            fetch(url)
+                .then(res => res.json())
+                .then(data => {                  //sends the .data to pizza() (basically "what you searched")
+                    const searchTerms = pizza();
+
+                    const scoredWards = data.features.map(item => {
+                        const name = item.attributes.NAME;  //using the dataset to get the name from .data
+                        const id = item.attributes.WARD_ID;  //using the dataset to get the ID  from .data
+                        const keywords = wordsfrfr[name] || [];  //getting the keywords for the wards
+
+                        const score = calculateScore(name, keywords, searchTerms);
+
+                        return { name, id, keywords, score };
+                    });
+
+                    scoredWards.sort((a, b) => b.score - a.score); // sort highest score first then goes to the rest of em
+                    renderWards(scoredWards);                      //renders em duh
+                });
+        }
+
+        function renderWards(wards) {
+            const container = document.getElementById("resultsContainer");
+            container.innerHTML = "";
+
+            wards.forEach(item => {                     //for each ward we have, making forms for each of them using DOM model
+                const form = document.createElement("form");
+                form.action = "forth.html";             //all wards lead to 4th html (tag selection)
+                form.method = "get";                    //basically constructing a <form> </from> from the ground up
+
+                const button = document.createElement("button");
+                button.type = "submit";
+                button.name = "ward";
+                button.value = item.name;
+
+                const box = document.createElement("div");
+                box.className = "wardBox";
+
+                const title = document.createElement("h3");
+                title.textContent = item.name;
+
+                const code = document.createElement("p");
+                code.textContent = "Code: " + item.id;
+
+                const keywordDisplay = document.createElement("p");
+                keywordDisplay.textContent = "Key words: " + item.keywords.map(k => `[${k}]`).join(""); //displaying the keywards of each ward
+
+                box.appendChild(title);           //i fkn love .appendChild(), it literally lets me build up the html in java script, making it possible to adjust to the data fetched
+                box.appendChild(code);
+                box.appendChild(keywordDisplay);
+
+                button.appendChild(box);
+                form.appendChild(button);
+                container.appendChild(form);
+            });
+        }
+
+
+
+    </script>
+
 </head>
 
 <body>
@@ -57,52 +183,13 @@
 
     <div class="box4">
         <main>
-
-            <form class="results" action="forth.html" method="get">
-
-                <button type="submit" name="Info" value="1st_search">
-                    <img src="5.png" width="75%" height="10%">
-                </button>
-
-
-                <button type="submit" name="Info" value="2nd_search">
-                    <img src="5.png" width="75%" height="10%">
-                </button>
-
-
-                <button type="submit" name="Info" value="3rd_search">
-                    <img src="5.png" width="75%" height="10%">
-                </button>
-
-
-                <button type="submit" name="Info" value="4th_search">
-                    <img src="5.png" width="75%" height="10%">
-                </button>
-
-
-                <button type="submit" name="Info" value="5th_search">
-                    <img src="5.png" width="75%" height="10%">
-                </button>
-
-
-                <button type="submit" name="Info" value="6th_search">
-                    <img src="5.png" width="75%" height="10%">
-                </button>
-
-
-
-            </form>
-
-
-
-
-
+            <div id="resultsContainer"></div>
         </main>
     </div>
 
 </div>
 
-
+<script>query();</script>
 
 </body>
 
