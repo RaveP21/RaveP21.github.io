@@ -6,9 +6,11 @@
 TODO: Write brief user stories to explain how various actors would interact with the system to accomplish a goal.
     Express these in the form from agile development:- As a (role) I want (goal) so that (benefit).
 
-    -> As a business i want regional, relevant data so that we can choose between locations to open business chains
-    -> As a potential mover, i want regional and relevant data so that i can choose a good place for me/my family to move to
-    -> As a resident i want relevant data on the area i live in so that i can get a better understanding of my area
+    -> As a user, i want to choose my role to get tags/data relevant to me.
+    -> As a user, i want to choose a ward to view specific data related to that location.
+    -> As a user, i want to be able to search for wards by their qualities and quickly get relevant wards as ranked results.
+    -> As a user, i want to choose tags to filter the data being viewed.
+    -> As a user, i want to visualize the data with visual elements to understand the results easier.
 
 ### Actors
     -> Mover, is someone who is looking to move to a new location and needs relevant data to make a decision 
