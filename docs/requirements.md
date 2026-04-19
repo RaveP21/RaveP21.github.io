@@ -82,7 +82,8 @@ TODO: Write brief user stories to explain how various actors would interact with
 
 TODO: Your Use-Case diagram should include all use-cases.
 
-![Insert your Use-Case Diagram Here](images/use-case.png)
+![Insert your Use-Case Diagram Here]<img width="1031" height="741" alt="usecase" src="https://github.com/user-attachments/assets/5bd09de4-8dc6-47a3-b9c8-fd4cd4b578b9" />
+
 
 ## Software Requirements Specification
 ### Functional requirements
