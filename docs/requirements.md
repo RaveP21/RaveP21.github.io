@@ -13,9 +13,14 @@ TODO: Write brief user stories to explain how various actors would interact with
     -> As a user, i want to visualize the data with visual elements to understand the results easier.
 
 ### Actors
-    -> Mover, is someone who is looking to move to a new location and needs relevant data to make a decision 
-    -> Business, is an entity which is looking to open new locations for their business and need relevant data to select the best candidate (area) 
-    -> resident, is someone who is already in an area but would like to look into details of the area they live in
+    User - The user accesses the system to perform actions like searching/selecting, filtering and viewing Bristol Open Data by choosing roles, wards and data types.
+    There are various users in the system, such as Mover, Business and Resident. The user types have no substantial impact on the working of the system, and hence the user actors are generally termed as one "User" actor in the system.
+
+    The user types are as follows:
+
+    Mover - The user who's interested in moving to other places
+    Business - The user who's interested in business data by ward
+    Resident - The user who's interested in the resident area they live in
 
 ### Use Cases
 
