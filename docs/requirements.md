@@ -25,7 +25,6 @@ TODO: Write brief user stories to explain how various actors would interact with
 ### Use Cases
 
 | UC1            | Select Role                                                                                                                                                         |
-|----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Description    | The user will choose a role, either Mover, Business, or Resident, to personalize the experience and influence available data options.                               |
 | Actors         | User                                                                                                                                                                |
 | Assumptions    | The system is accessible via a supported web browser                                                                                                                |
@@ -35,7 +34,6 @@ TODO: Write brief user stories to explain how various actors would interact with
 | Issues         | Role selection does not significantly change system functionality                                                                                                   |
 |                |                                                                                                                                                                     |
 | UC2            | Select Ward (Map interaction)                                                                                                                                       |
-|----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Description    | The user chooses a ward through the interactive map interface                                                                                                       |
 | Actors         | User                                                                                                                                                                |
 | Assumptions    | The map loads correctly and displays all wards                                                                                                                      |
@@ -45,7 +43,6 @@ TODO: Write brief user stories to explain how various actors would interact with
 | Issues         | Usability of the map can differ based on the device being used                                                                                                      |
 |                |                                                                                                                                                                     |
 | UC3            | Search and Rank Wards                                                                                                                                               |
-|----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Description    | The user searches for wards using keywords, and the system ranks results based on relevance.                                                                        |
 | Actors         | User                                                                                                                                                                |
 | Assumptions    | The system has access to api ward data and keyword mappings                                                                                                         |
@@ -55,7 +52,6 @@ TODO: Write brief user stories to explain how various actors would interact with
 | Issues         | Ranking accuracy depends on limited predefined keywords                                                                                                             |
 |                |                                                                                                                                                                     |
 | UC4            | Select Tags (Dataset Filtering)                                                                                                                                     |
-|----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Description    | The user selects one or more tags to filter, datasets that will be fetched.                                                                                         |
 | Actors         | User                                                                                                                                                                |
 | Assumptions    | Tags are correctly mapped to datasets                                                                                                                               |
@@ -65,7 +61,6 @@ TODO: Write brief user stories to explain how various actors would interact with
 | Issues         | Some tags may map to the same dataset or worse, one tag trying to fetch multiple datasets                                                                           |
 |                |                                                                                                                                                                     |
 | UC5            | View Ranked Data (All wards)                                                                                                                                        |
-|----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Description    | The user views one or more graphs, each representing ranking of all wards for the selected tag(s). E.g. crime                                                       |
 | Actors         | User                                                                                                                                                                |
 | Assumptions    | At least one tag has been selected on page 3.                                                                                                                       |
@@ -75,7 +70,6 @@ TODO: Write brief user stories to explain how various actors would interact with
 | Issues         | Dependent on API availability, sensitive to different naming convensions in different datasets                                                                      |
 |                |                                                                                                                                                                     |
 | UC6            | View Ward-Specific Data                                                                                                                                             |
-|----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Description    | The user sees detailed information about a selected ward depending on the tags selected.                                                                            |
 | Actors         | User                                                                                                                                                                |
 | Assumptions    | A ward and at least one tag have been selected                                                                                                                      |
@@ -83,6 +77,7 @@ TODO: Write brief user stories to explain how various actors would interact with
 | Variations     | A message is displayed if no information is available.                                                                                                              |
 | Non-functional | Visualisations should render clearly on phones                                                                                                                      |
 | Issues         | Reliability of the latest data depends on an External API                                                                                                           |
+
 
 
 TODO: Your Use-Case diagram should include all use-cases.
