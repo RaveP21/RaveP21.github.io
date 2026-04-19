@@ -3,8 +3,6 @@
 ## User Needs
 
 ### User stories
-TODO: Write brief user stories to explain how various actors would interact with the system to accomplish a goal.
-    Express these in the form from agile development:- As a (role) I want (goal) so that (benefit).
 
     -> As a user, i want to choose my role to get tags/data relevant to me.
     -> As a user, i want to choose a ward to view specific data related to that location.
@@ -80,9 +78,8 @@ TODO: Write brief user stories to explain how various actors would interact with
 | Non-functional | Visualisations should render clearly on phones                                                                                                                      |
 | Issues         | Reliability of the latest data depends on an External API                                                                                                           |
 
-TODO: Your Use-Case diagram should include all use-cases.
 
-![Insert your Use-Case Diagram Here]<img width="1031" height="741" alt="usecase" src="https://github.com/user-attachments/assets/5bd09de4-8dc6-47a3-b9c8-fd4cd4b578b9" />
+<img width="1031" height="741" alt="usecase" src="https://github.com/user-attachments/assets/5bd09de4-8dc6-47a3-b9c8-fd4cd4b578b9" />
 
 
 ## Software Requirements Specification
@@ -120,5 +117,3 @@ TODO: Your Use-Case diagram should include all use-cases.
 
     NFR6 (UC5, UC6), The system could enhance visual clarity with improved styling and layout
     NFR7 (UC5, UC6), The system could optimise performance for lower-end devices
-
-Indicate which UC the requirement comes from.
