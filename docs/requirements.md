@@ -86,19 +86,38 @@ TODO: Your Use-Case diagram should include all use-cases.
 
 ## Software Requirements Specification
 ### Functional requirements
-    FR1, The system should take the location of the resident
-    FR2, The system may take the location of the Mover and the business
-    FR3, The system must be able to run in the selected brouser software
-    FR4, The system should get the user to select a location for inspection
-    FR5, The system must show relivent data for the user type
-    FR6, The system should be able to display graphs using the dataset
-    FR7, the sytem must be able to access the data from the dataset
-    FR8, The system must get the user type from user
+    FR1 (UC1), The system must allow the user to select a role and store it for use across pages
+    FR2 (UC2), The system must allow the user to select a ward using an interactive map
+    FR3 (UC3), The system must allow the user to search for wards using keywords
+    FR4 (UC3), The system must rank wards based on keyword relevance using a scoring system
+    FR5 (UC4), The system must allow the user to select one or more tags to filter data
+    FR6 (UC4), The system must map selected tags to corresponding datasets
+    FR7 (UC5, UC6), The system must retrieve data from external APIs based on selected tags and/or ward
+    FR8 (UC5, UC6), The system must process retrieved data into a usable format
+    FR9 (UC6), The system must display ward-specific data based on selected ward and tags
+
+    FR10 (UC5), The system should display ranked data for all wards based on selected tags
+    FR11 (UC5, UC6), The system should present data using graphical visualisations
+    FR12 (UC2, UC3), The system should allow multiple navigation paths (map and search)
+
+    FR13 (UC4), The system could suggest relevant tags based on selected role
+    FR14 (UC4), The system could allow users to refine or reset their selections
+    FR15 (UC2), The system could highlight wards dynamically on map interaction
+
+    FR16 (N/A), The system won’t include user account creation or login functionality
+    FR17 (N/A), The system won’t store user data persistently in a database
+    FR18 (N/A), The system won’t provide real-time live data updates
+
 
 ### Non-Functional Requirements
-    NFR1, The system may have account settings for regular use
-    NFR2, The system should show a high resolution image of the map
-    NFR3, The website must work in mobile
-    NFR4, The website may suggest different areas, incase not enough desired, area requirements are found in an area
+    NFR1 (UC5, UC6), The system must load and display API data within 3 seconds under normal conditions
+    NFR2 (UC1–UC6), The system must function correctly on modern web browsers (e.g. Chrome, Edge)
+    NFR3 (UC5, UC6), The system must handle failed API responses gracefully
+
+    NFR4 (UC1–UC6), The system should allow users to complete key tasks within 3–5 interactions
+    NFR5 (UC1–UC6), The system should display correctly on mobile devices
+
+    NFR6 (UC5, UC6), The system could enhance visual clarity with improved styling and layout
+    NFR7 (UC5, UC6), The system could optimise performance for lower-end devices
 
 Indicate which UC the requirement comes from.
