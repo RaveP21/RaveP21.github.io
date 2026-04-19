@@ -24,8 +24,9 @@ TODO: Write brief user stories to explain how various actors would interact with
 
 ### Use Cases
 
-| UC1            | Select Role                                                                                                                                                         |
+| USE-CASE ID    | USE-CASE NAME                                                                                                                                                       |
 |----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| UC1            | Select Role                                                                                                                                                         |
 | Description    | The user will choose a role, either Mover, Business, or Resident, to personalize the experience and influence available data options.                               |
 | Actors         | User                                                                                                                                                                |
 | Assumptions    | The system is accessible via a supported web browser                                                                                                                |
@@ -78,9 +79,6 @@ TODO: Write brief user stories to explain how various actors would interact with
 | Variations     | A message is displayed if no information is available.                                                                                                              |
 | Non-functional | Visualisations should render clearly on phones                                                                                                                      |
 | Issues         | Reliability of the latest data depends on an External API                                                                                                           |
-
-
-
 
 TODO: Your Use-Case diagram should include all use-cases.
 
