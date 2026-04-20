@@ -29,7 +29,8 @@ This screen displays ranked ward results based on keyword input. It provides an 
 
 ## User Interface design
 TODO: Specify and develop a user interface mockup using a wireframe.
-<img width="8318" height="8054" alt="image" src="https://github.com/user-attachments/assets/74de3477-1024-4553-89a9-dc0d751b7f28" />
+<img width="8408" height="7967" alt="image" src="https://github.com/user-attachments/assets/58993776-b0b2-4dab-847a-24d3cf94e797" />
+
 ### Primary Flow (Main System Path)
 The primary flow begins with role selection (Page 1), followed by ward selection (Page 2), tag selection (Page 4), and finally data visualisation (Page 7). This flow supports the main use case of viewing ward-specific data.
 ### Alternative Flow (Ranking Path)
