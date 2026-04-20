@@ -9,7 +9,7 @@ This screen allows the user to select their role (Resident, Mover, Business, Gue
 <img width="1500" height="1000" alt="image" src="https://github.com/user-attachments/assets/89f9f5d3-1b6c-4934-9806-d079ca7ec545" />
 This screen provides an interactive map and search bar, allowing users to select a ward visually or via text input. The design prioritises accessibility by offering both graphical and textual interaction methods.
 ### Screen 3 — Tag Selection (Page 3/4)
-<img width="1500" height="1000" alt="image" src="https://github.com/user-attachments/assets/cf8a5d03-fca0-4f84-b068-f156d59a2e00" />
+<img width="750" height="500" alt="image" src="https://github.com/user-attachments/assets/cf8a5d03-fca0-4f84-b068-f156d59a2e00" />
 This interface allows users to select data categories (tags). Suggested tags are influenced by the selected role, improving relevance and reducing cognitive load.
 ### Screen 4 — Ranked Data View (Page 5)
 <img width="1500" height="1000" alt="image" src="https://github.com/user-attachments/assets/4f86faa8-2c40-454b-9bc6-d64dcb61e335" />
