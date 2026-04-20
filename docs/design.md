@@ -28,7 +28,6 @@ This screen presents detailed, ward-specific data using graphs. It represents th
 This screen displays ranked ward results based on keyword input. It provides an alternative interaction path, demonstrating flexibility in user navigation.
 
 ## User Interface design
-TODO: Specify and develop a user interface mockup using a wireframe.
 <img width="8408" height="7967" alt="image" src="https://github.com/user-attachments/assets/58993776-b0b2-4dab-847a-24d3cf94e797" />
 
 ### Primary Flow (Main System Path)
@@ -58,10 +57,4 @@ The system delays API calls until sufficient input is collected, reducing unnece
 ## Use Case Relation 
 The interface design directly supports key use cases, including selecting a ward, filtering data using tags, and viewing results. Each screen is structured to guide the user through these actions efficiently.
 
-
-
-
 ![Insert your wireframe/wireflow here] ![](images/wireframe2.png)
-
-
-TODO: repeat as necessary
