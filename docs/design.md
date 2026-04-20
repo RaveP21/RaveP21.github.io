@@ -1,5 +1,5 @@
 # Design
-##UI Overview
+## UI Overview
 It uses a multi-page web application interface, in which users have to enter their input (role, ward, and tags) progressively until they can visualize the data generated based on the inputs provided. The design separates input collection from data visualisation, improving clarity and usability.
 ## User Interface design
 TODO: Specify and develop a user interface mockup using a wireframe.
