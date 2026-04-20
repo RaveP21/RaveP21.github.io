@@ -1,6 +1,6 @@
 # Design
 ## UI Overview
-It uses a multi-page web application interface, in which users have to enter their input (role, ward, and tags) progressively until they can visualize the data generated based on the inputs provided. The design separates input collection from data visualisation, improving clarity and usability.
+The user interface is designed as a multi-page web application where users progressively refine their input (role, ward, and tags) before viewing dynamically generated data. The design separates input collection from data visualisation, improving clarity and usability.
 ## Individual Screen Designs
 ### Screen 1 — Role Selection (Page 1)
 <img width="1500" height="1000" alt="image" src="https://github.com/user-attachments/assets/c8803338-8271-43a4-8509-4117768b4458" />
