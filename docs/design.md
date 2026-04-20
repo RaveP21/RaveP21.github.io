@@ -37,6 +37,28 @@ An alternative path allows users to select tags without choosing a ward (Page 3)
 ### Search Flow
 Users can also enter keywords via the search bar, which redirects to Page 6. From there, they can select a ward and continue to Page 4 and Page 7.
 
+## Design Decisions
+
+### Simplicity
+The interface uses a step-by-step structure to avoid overwhelming users, ensuring that only relevant information is presented at each stage.
+
+### Flexibility
+Multiple input methods (map selection and keyword search) are provided to accommodate different user preferences.
+
+### Data Clarity
+Graph-based visualisations are used to improve readability and allow users to quickly interpret complex datasets.
+
+### Consistency
+Navigation and input components are consistent across pages, reducing the learning curve and improving usability.
+
+### Efficiency
+The system delays API calls until sufficient input is collected, reducing unnecessary data requests and improving performance.
+
+## Use Case Relation 
+The interface design directly supports key use cases, including selecting a ward, filtering data using tags, and viewing results. Each screen is structured to guide the user through these actions efficiently.
+
+
+
 
 ![Insert your wireframe/wireflow here] ![](images/wireframe2.png)
 
