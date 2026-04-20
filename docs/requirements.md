@@ -79,8 +79,7 @@
 | Issues         | Reliability of the latest data depends on an External API                                                                                                           |
 
 
-<img width="1031" height="741" alt="usecase" src="https://github.com/user-attachments/assets/5bd09de4-8dc6-47a3-b9c8-fd4cd4b578b9" />
-
+<img width="1924" height="1581" alt="image" src="https://github.com/user-attachments/assets/34d0b5dc-5c24-4413-afc6-e3a9fad22342" />
 
 ## Software Requirements Specification
 ### Functional requirements
