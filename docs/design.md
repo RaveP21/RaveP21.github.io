@@ -56,5 +56,3 @@ The system delays API calls until sufficient input is collected, reducing unnece
 
 ## Use Case Relation 
 The interface design directly supports key use cases, including selecting a ward, filtering data using tags, and viewing results. Each screen is structured to guide the user through these actions efficiently.
-
-![Insert your wireframe/wireflow here] ![](images/wireframe2.png)
