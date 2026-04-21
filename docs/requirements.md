@@ -3,99 +3,116 @@
 ## User Needs
 
 ### User stories
-TODO: Write brief user stories to explain how various actors would interact with the system to accomplish a goal.
-    Express these in the form from agile development:- As a (role) I want (goal) so that (benefit).
 
-    -> As a business i want regional, relevant data so that we can choose between locations to open business chains
-    -> As a potential mover, i want regional and relevant data so that i can choose a good place for me/my family to move to
-    -> As a resident i want relevant data on the area i live in so that i can get a better understanding of my area
+    -> As a user, i want to choose my role to get tags/data relevant to me.
+    -> As a user, i want to choose a ward to view specific data related to that location.
+    -> As a user, i want to be able to search for wards by their qualities and quickly get relevant wards as ranked results.
+    -> As a user, i want to choose tags to filter the data being viewed.
+    -> As a user, i want to visualize the data with visual elements to understand the results easier.
 
 ### Actors
-    -> Mover, is someone who is looking to move to a new location and needs relevant data to make a decision 
-    -> Business, is an entity which is looking to open new locations for their business and need relevant data to select the best candidate (area) 
-    -> resident, is someone who is already in an area but would like to look into details of the area they live in
+    User - The user accesses the system to perform actions like searching/selecting, filtering and viewing Bristol Open Data by choosing roles, wards and data types.
+    There are various users in the system, such as Mover, Business and Resident. The user types have no substantial impact on the working of the system, and hence the user actors are generally termed as one "User" actor in the system.
+
+    The user types are as follows:
+
+    Mover - The user who's interested in moving to other places
+    Business - The user who's interested in business data by ward
+    Resident - The user who's interested in the resident area they live in
 
 ### Use Cases
 
-    | UC1 | The mover | 
-    | -------------------------------------- | ------------------- |
-    | This user, is looking to move from their current area (anywhere in the world) to a new area, this website will present the user with information about the areas they are interested in, so that they can make an educated decision on where they move to, be it with family or by themselves | TODO: Goal to be achieved by use case and sources for requirement |
-
-    | Mover | Individuals, couples or domestic families or friends |
-
-    | Assumptions include: 1) The user is using a browser which can support the website's acitvities
-                       2) The data presented to the user is up-to date
-                       3) Any information taken from the user is secure
-                       4) The user has a general idea of what relivent data they are looking to compare
-                       5) The website is able to access and display the data from the database | TODO: Pre/post-conditions if any</td></tr>
-                       
-    | First the user chooses either to enter the website via login or as a guest, then the user has to choose between 3 types of User types "1)Mover, 2)Business, 3)resident", in this case the user picks "mover". Then user is asked to type our the area they are looking for, the system matches it with the database and displays the given location on an interactable map, from here the user can look into areas they are interested in and compare the relivent data such as crime rates, household income, available hospitals etc. and can also go into further detailed page about a specific location. | TODO: Interactions between actors and system necessary to achieve goal |
-
-    | For variations, the use might choose to log in, the user might know exactly which area they want to look into or they might need a broader comparisan, of cities and even countries. If the user has family, things like closest school, saloon etc may be things they would compare, while someone who would move alone might care more about information on the job market and their personal needs. | TODO: OPTIONAL - Any variations in the steps of a use case |
-
-    | NFR1, The system may have account settings for regular use | TODO: OPTIONAL - List of non-functional requirements that the use case must meet. |
-    | System's readablility of the dataset | TODO: OPTIONAL - List of issues that remain to be resolved |
-
-
-    | UC2 | The Business | 
-    | -------------------------------------- | ------------------- |
-    | This user, is a business big enough that they are looking to open business in new locations (supermarkets, fast food chains etc), this website will present the business with information about the areas they are interested in, so that they can make an educated decision on which area they choose to invest in | TODO: Goal to be achieved by use case and sources for requirement |
-
-    | Business | TODO: List of actors involved in use case |
-
-    | Assumptions include: 1) The user is using a browser which can support the website's acitvities
-                       2) The data presented to the user is up-to date
-                       3) Any information taken from the user is secure
-                       4) The user has a general idea of what relivent data they are looking to compare
-                       5) The website is able to access and display the data from the database | TODO: Pre/post-conditions if any</td></tr>
-                       
-    | First the user chooses either to enter the website via login or as a guest, then the user has to choose between 3 types of User types "1)Mover, 2)Business, 3)resident", in this case the user picks "Business". Then user is asked to type our the area they are looking for, the system matches it with the database and displays the given location on an interactable map, from here the user can look into areas they are interested in and compare the relivent data such as house hold income, construction companies, cost of transportation in the area, crime rates etc. and can also go into further detailed page about a specific location. | TODO: Interactions between actors and system necessary to achieve goal |
-
-    | For variations, the use might choose to log in, the user might know exactly which area they want to look into or they might need a broader comparisan, of cities and even countries. Different types of business, care about different things when it comes to opening a new location, some might look for an optical place for restocking (fastfood chains), while others might care more about comparing mental health between areas (Therapist business) | TODO: OPTIONAL - Any variations in the steps of a use case |
-
-    | NFR1, The system may have account settings for regular use | TODO: OPTIONAL - List of non-functional requirements that the use case must meet. |
-    | System's readablility of the dataset | TODO: OPTIONAL - List of issues that remain to be resolved |
-
-
-    | UC3 | The resident | 
-    | -------------------------------------- | ------------------- |
-    | This user, is already in a location they are happy to stay in, but are looking know more about their current area and comparing it to other locations, this website will present the user with information about the areas they are interested to look into. | TODO: Goal to be achieved by use case and sources for requirement |
-
-    | resident | TODO: List of actors involved in use case |
-
-    | Assumptions include: 1) The user is using a browser which can support the website's acitvities
-                       2) The data presented to the user is up-to date
-                       3) Any information taken from the user is secure
-                       4) The user has a general idea of what relivent data they are looking to compare
-                       5) The website is able to access and display the data from the database | TODO: Pre/post-conditions if any</td></tr>
-                       
-    | First the user chooses either to enter the website via login or as a guest, then the user has to choose between 3 types of User types "1)Mover, 2)Business, 3)Recident", in this case the user picks "resident". Following this, the user is asked to let the website access their location (must), the system matches it with the database and displays the given location on an interactable map, from here the user can look into aspects of the area they are interested in and compare the relivent data such as crime rates, household income, available hospitals etc. to other areas and can also go into further detailed page about a specific location. | TODO: Interactions between actors and system necessary to achieve goal |
-
-    | For variations, the use might choose to log in, the user might not allow the location request in which case the use is given a zoomed out map. If the user has family, things like closest school, saloon etc may be things they would compare, while someone who would move alone might care more about information on the job market and their personal needs. | TODO: OPTIONAL - Any variations in the steps of a use case |
-
-    | NFR1, The system may have account settings for regular use | TODO: OPTIONAL - List of non-functional requirements that the use case must meet. |
-    | System's readablility of the dataset | TODO: OPTIONAL - List of issues that remain to be resolved |
+| USE-CASE ID    | USE-CASE NAME                                                                                                                                                       |
+|----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| UC1            | Select Role                                                                                                                                                         |
+| Description    | The user will choose a role, either Mover, Business, or Resident, to personalize the experience and influence available data options.                               |
+| Actors         | User                                                                                                                                                                |
+| Assumptions    | The system is accessible via a supported web browser                                                                                                                |
+| Steps          | 1. User opens the application → 2. System displays role options → 3. User selects a role → 4. System stores the selected role and proceeds to the next page         |
+| Variations     | The user can continue as a guest without choosing a specific role.                                                                                                  |
+| Non-functional | The chosen role should be processed immediately.                                                                                                                    |
+| Issues         | Role selection does not significantly change system functionality                                                                                                   |
+|                |                                                                                                                                                                     |
+| UC2            | Select Ward (Map interaction)                                                                                                                                       |
+| Description    | The user chooses a ward through the interactive map interface                                                                                                       |
+| Actors         | User                                                                                                                                                                |
+| Assumptions    | The map loads correctly and displays all wards                                                                                                                      |
+| Steps          | 1. User navigates to map page → 2. System displays ward map → 3. User hovers or clicks a ward → 4. System captures and stores the selected ward                     |
+| Variations     | Alternatively, the user could utilize the search functionality (UC3)                                                                                                |
+| Non-functional | Map interaction should respond within 1 second                                                                                                                      |
+| Issues         | Usability of the map can differ based on the device being used                                                                                                      |
+|                |                                                                                                                                                                     |
+| UC3            | Search and Rank Wards                                                                                                                                               |
+| Description    | The user searches for wards using keywords, and the system ranks results based on relevance.                                                                        |
+| Actors         | User                                                                                                                                                                |
+| Assumptions    | The system has access to api ward data and keyword mappings                                                                                                         |
+| Steps          | 1. User enters search query → 2. System processes keywords → 3. API call is made → 4. System ranks wards using scoring logic → 5. Results are displayed to the user |
+| Variations     | In case no matches are made, the results will display wards alphabetically by default.                                                                              |
+| Non-functional | Results should be displayed within 2 seconds                                                                                                                        |
+| Issues         | Ranking accuracy depends on limited predefined keywords                                                                                                             |
+|                |                                                                                                                                                                     |
+| UC4            | Select Tags (Dataset Filtering)                                                                                                                                     |
+| Description    | The user selects one or more tags to filter, datasets that will be fetched.                                                                                         |
+| Actors         | User                                                                                                                                                                |
+| Assumptions    | Tags are correctly mapped to datasets                                                                                                                               |
+| Steps          | 1. System displays available tags → 2. User selects one or more options → 3. System stores selected tags → 4. Tags are passed to the next stage                     |
+| Variations     | Depending on the role selected on page 1, ""suggested tags"" are shown to bring forward tags of interest for the user type                                          |
+| Non-functional | Tags may be grouped into topics.                                                                                                                                    |
+| Issues         | Some tags may map to the same dataset or worse, one tag trying to fetch multiple datasets                                                                           |
+|                |                                                                                                                                                                     |
+| UC5            | View Ranked Data (All wards)                                                                                                                                        |
+| Description    | The user views one or more graphs, each representing ranking of all wards for the selected tag(s). E.g. crime                                                       |
+| Actors         | User                                                                                                                                                                |
+| Assumptions    | At least one tag has been selected on page 3.                                                                                                                       |
+| Steps          | 1. System receives selected tags → 2. System maps tags to datasets → 3. API calls are made → 4. Data is processed → 5. Graphs displaying ranked results are shown   |
+| Variations     | If data is unavailable, a message is displayed                                                                                                                      |
+| Non-functional | Data should load within 3 seconds                                                                                                                                   |
+| Issues         | Dependent on API availability, sensitive to different naming convensions in different datasets                                                                      |
+|                |                                                                                                                                                                     |
+| UC6            | View Ward-Specific Data                                                                                                                                             |
+| Description    | The user sees detailed information about a selected ward depending on the tags selected.                                                                            |
+| Actors         | User                                                                                                                                                                |
+| Assumptions    | A ward and at least one tag have been selected                                                                                                                      |
+| Steps          | 1. User selects ward → 2. User selects tags → 3. System sends data via URL → 4. API calls are made → 5. Data is processed → 6. Results are displayed as graphs      |
+| Variations     | A message is displayed if no information is available.                                                                                                              |
+| Non-functional | Visualisations should render clearly on phones                                                                                                                      |
+| Issues         | Reliability of the latest data depends on an External API                                                                                                           |
 
 
-TODO: Your Use-Case diagram should include all use-cases.
-
-![Insert your Use-Case Diagram Here](images/use-case.png)
+<img width="1924" height="1581" alt="image" src="https://github.com/user-attachments/assets/34d0b5dc-5c24-4413-afc6-e3a9fad22342" />
 
 ## Software Requirements Specification
 ### Functional requirements
-    FR1, The system should take the location of the resident
-    FR2, The system may take the location of the Mover and the business
-    FR3, The system must be able to run in the selected brouser software
-    FR4, The system should get the user to select a location for inspection
-    FR5, The system must show relivent data for the user type
-    FR6, The system should be able to display graphs using the dataset
-    FR7, the sytem must be able to access the data from the dataset
-    FR8, The system must get the user type from user
+    FR1 (UC1), The system must allow the user to select a role and store it for use across pages
+    FR2 (UC2), The system must allow the user to select a ward using an interactive map
+    FR3 (UC3), The system must allow the user to search for wards using keywords
+    FR4 (UC3), The system must rank wards based on keyword relevance using a scoring system
+    FR5 (UC4), The system must allow the user to select one or more tags to filter data
+    FR6 (UC4), The system must map selected tags to corresponding datasets
+    FR7 (UC5, UC6), The system must retrieve data from external APIs based on selected tags and/or ward
+    FR8 (UC5, UC6), The system must process retrieved data into a usable format
+    FR9 (UC6), The system must display ward-specific data based on selected ward and tags
+
+    FR10 (UC5), The system should display ranked data for all wards based on selected tags
+    FR11 (UC5, UC6), The system should present data using graphical visualisations
+    FR12 (UC2, UC3), The system should allow multiple navigation paths (map and search)
+
+    FR13 (UC4), The system could suggest relevant tags based on selected role
+    FR14 (UC4), The system could allow users to refine or reset their selections
+    FR15 (UC2), The system could highlight wards dynamically on map interaction
+
+    FR16 (N/A), The system won’t include user account creation or login functionality
+    FR17 (N/A), The system won’t store user data persistently in a database
+    FR18 (N/A), The system won’t provide real-time live data updates
+
 
 ### Non-Functional Requirements
-    NFR1, The system may have account settings for regular use
-    NFR2, The system should show a high resolution image of the map
-    NFR3, The website must work in mobile
-    NFR4, The website may suggest different areas, incase not enough desired, area requirements are found in an area
+    NFR1 (UC5, UC6), The system must load and display API data within 3 seconds under normal conditions
+    NFR2 (UC1–UC6), The system must function correctly on modern web browsers (e.g. Chrome, Edge)
+    NFR3 (UC5, UC6), The system must handle failed API responses gracefully
 
-Indicate which UC the requirement comes from.
+    NFR4 (UC1–UC6), The system should allow users to complete key tasks within 3–5 interactions
+    NFR5 (UC1–UC6), The system should display correctly on mobile devices
+
+    NFR6 (UC5, UC6), The system could enhance visual clarity with improved styling and layout
+    NFR7 (UC5, UC6), The system could optimise performance for lower-end devices
