@@ -75,41 +75,15 @@
               });
 
             polygon.on("click", function () {//changing the output url depending on the clicked marker
-                window.location.href = `forth.html?role=${role}&ward=${encodeURIComponent(wardCode)}`;
+                window.location.href = `forth.html?role=${role}&ward=${encodeURIComponent(wardCode)}&Wname=${encodeURIComponent(a.NAME)}`;
     });
 
         }
 
-        function mapIcons(feature, map){
-
-            let a = feature.attributes;
-            let ring = feature.geometry.rings[0];
-
-            let sumLat = 0;
-            let sumLon = 0;
-
-            for (let i = 0; i < ring.length; i++){
-                sumLon += ring[i][0]; // longitude
-                sumLat += ring[i][1]; // latitude
-            }
-
-            let lat = sumLat / ring.length;
-            let lon = sumLon / ring.length;
-
-            const marker = L.marker([lat, lon]).addTo(map);
-
-            marker.bindTooltip(a.NAME, {
-                permanent: false,
-                direction: "top"
-            });
-
-            marker.on("click", function () {//changing the output url depending on the clicked marker
-                window.location.href = `forth.html?role=${role}&ward=${encodeURIComponent(a.NAME)}`;
-            });
-
+       
 
             
-        }
+        
 
     </script>
 

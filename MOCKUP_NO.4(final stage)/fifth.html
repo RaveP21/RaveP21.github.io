@@ -96,8 +96,11 @@
 
                const container = document.createElement("div"); //this creates a <div></div> for later implimentation using .appendChild()
 
+               const params = new URLSearchParams(window.location.search);  //this reads the url data
+               const selectedTags = params.getAll("Wname");  //this strips the url data to get ward name data
+
                const title = document.createElement("h2");  //this creats a <h2></h2> for later implimentation using .appendChild()
-               title.textContent = "Ward Ranking (Tag " + tag + ")";  //this defines what the title looks like
+               title.textContent = "Ward Ranking (Tag " + tag + "(" + Wname +")";  //this defines what the title looks like
                container.appendChild(title);   // this is the part that solves world hunger. here the title gets put in the container
 
                const features = data.features;   //assigning data.features to the name "features"

@@ -87,6 +87,7 @@
 
             const params = new URLSearchParams(window.location.search); //this reads the url data
             const selectedWard = params.get("ward"); //this strips the url data to get ward data
+            const selectedWardName = params.get("Wname"); // strips url for ward name data
             const selectedTags = params.getAll("info");  //this strips the url data to get info data
 
             const main = document.querySelector("main");  //this connects the <script> with main
@@ -98,14 +99,14 @@
                 fetch(url)                //this is where the actual getting API data happens
                     .then(res => res.json())       //turns the url into .json format
                     .then(data => {                //this send the collected data to "graphNdShi" with the tag,data,main and selelcted ward data
-                    graphNdShi(tag, data, main, selectedWard);
+                    graphNdShi(tag, data, main, selectedWard, selectedWardName);
                     })
                     .catch(err => console.error(err)); //this just catches any issues/errors and just does counsole.error(err)
 
             });
         }
 
-        function graphNdShi(tag, data, main, selectedWard) {   //This is the actual FUNCTION that the collected data is gana be used in
+        function graphNdShi(tag, data, main, selectedWard, selectedWardName) {   //This is the actual FUNCTION that the collected data is gana be used in
 
             const container = document.createElement("div");    //this creates a <div></div> for later implimentation using .appendChild()
             const chartRow = document.createElement("div");     //this creates a <div></div> for later implimentation using .appendChild()
@@ -114,15 +115,25 @@
             chartRow.style.alignItems = "center"; // vertical alignment
 
             const title = document.createElement("h2");         //this creats a <h2></h2> for later implimentation using .appendChild()
-            title.textContent = "Tag " + tag + " (" + selectedWard + ")";  //this defines what the title looks like
+            title.textContent = "Tag " + tag + " (" + selectedWardName + ")";  //this defines what the title looks like
             container.appendChild(title);                      // this is the big part. here the title gets put in the container
 
             const features = data.features;                    //assigning data.features to the name "features"
 
 
-            const filtered = features.filter(f => {    //this takes the full data and filters it with just the ward (this filtering has issues with dataset 11 as it is names different in it)
+            const filtered = features.filter(f => {
                 const a = f.attributes;
-                return a.WARD_NAME === selectedWard || a.WARD === selectedWard;
+
+                const wardFields = [
+                    a.WARD_NAME,
+                    a.WARD,
+                    a.Ward_name,   // dataset 27 uses this
+                    a.NAME
+                ];
+
+                return wardFields.some(w =>
+                    w && w.toString().toLowerCase().trim() === (selectedWardName || selectedWard).toLowerCase().trim()
+                );
             });
 
             if (filtered.length === 0) {                                                      //this is really helpful rn as this shows which datasets are not accessable for some reason
@@ -137,14 +148,29 @@
             const values = [];
 
             for (let key in attributes) {
-                if (typeof attributes[key] === "number") {
-                    labels.push(key);
-                    values.push(attributes[key]);
-                }
-            }
+                const value = attributes[key];
 
-            const finalLabels = labels.slice(0, 6);
-            const finalValues = values.slice(0, 6);
+                if (
+                    typeof value === "number" &&
+                    !key.includes("CODE") &&
+                    !key.includes("ID") &&
+                    !key.includes("YEAR")
+                ) {
+                    labels.push(key.replaceAll("_", " "));
+                    values.push(value);
+                }
+}
+
+            const pairs = labels.map((label, i) => ({label, value: values[i]}));
+
+            // sort biggest to smallest
+            pairs.sort((a, b) => b.value - a.value);
+
+            // take top 6
+            const top = pairs.slice(0, 6);
+
+            const finalLabels = top.map(p => p.label);
+            const finalValues = top.map(p => p.value);
 
 
             const barCanvas = document.createElement("canvas"); // gotto have the "canvas" before making graphs
@@ -152,17 +178,30 @@
             barCanvas.width = 800;   // this sets the size
             barCanvas.height = 400;
 
-            new Chart(barCanvas, {    //using the previously defined "barCanvas" in line 133 (above the size changer) actually defining what the chat looks like
-                type: 'bar',        //type in any kinda graph we need fr
+            new Chart(barCanvas, {
+                type: 'bar',
                 data: {
                     labels: finalLabels,
                     datasets: [{
-                        label: 'Values',
+                        label: "Data",
                         data: finalValues
                     }]
                 },
                 options: {
-                    responsive: false   // this is to make the sizing possible, idk why without this sizing change doesn't work
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        x: {
+                            ticks: {
+                                maxRotation: 45,
+                                minRotation: 30
+                            }
+                        }
+                    }
                 }
             });
 

@@ -66,7 +66,7 @@
 
 
             <form class="checklist" action="seventh.html" method="get">
-                <input type="hidden" name="ward" id="wardInput">
+                <input type="hidden"  name="Wname" id="wardInput">
 
                     <label>
                         <input type="checkbox" name="info" value="1">
@@ -182,9 +182,12 @@
     const params = new URLSearchParams(window.location.search);
     const role = params.get("role"); //extracts the role
 
+    const Wname = params.get("Wname");
+
     const ward = params.get("ward");
 
-    document.getElementById("wardInput").value = ward;
+    document.getElementById("wardInput").value = Wname;
+   
 
     console.log("Ward received:", ward);
 </script>
