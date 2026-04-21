@@ -66,3 +66,18 @@ All datasets follow a similar structure:
 
 # User guide
 TODO: Explain how each use-case works by providing step-by-step screenshots for each use-case. This should be based on a tested scenario.
+
+## UC1 – Select Role
+Steps:
+
+   1) Open application
+   2) Select “Mover”
+   3) Redirect to map
+
+Expected Result:
+
+   --> URL contains role=Mover
+
+## UC2 – Map Selection
+etc
+etc
