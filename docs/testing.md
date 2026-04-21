@@ -1,17 +1,6 @@
 # Testing
 
 ## Test Plan
-TODO: Describe any manual and automated (unit) tests. Uniquely identify each test case. Include prerequisites and test data.
-
-Test Runs
-TODO: For each test described above, indicate the current status. 
-Create a requirements traceability matrix to validate the completeness of the product.
-
-| Use-Case ID | Requirement ID | Test Case | Status |
-| ----------- | -------------- | --------- | ------ |
-
-TODO: Add rows for each test, current status is eg. pass/fail
-
 
 | Requirements ID | Test Case ID | Unit Tested                 | Integration Testing        | Input / Precondition         | Expected Outputs                         |
 |-----------------|--------------|-----------------------------|----------------------------|------------------------------|------------------------------------------|
@@ -101,3 +90,94 @@ TODO: Add rows for each test, current status is eg. pass/fail
 | N/A             | TC-E2E4      |                             | Error flow                 | Invalid search               | Fallback works                           |
 | N/A             | TC-E2E5      |                             | Multi data                 | Multiple tags                | Datasets shown                           |
 | N/A             | TC-E2E6      |                             | Failure handling           | API failure                  | Handled properly                         |
+
+## Test Runs
+
+| Use-Case ID | Requirement ID | Test Case ID | Status |
+|-------------|----------------|--------------|--------|
+| UC1         | FR1            | TC1.U1       | Pass   |
+| UC1         | FR1            | TC1.U2       | Pass   |
+| UC1         | FR1            | TC1.U3       | Pass   |
+| UC1         | FR1            | TC1.I1       | Pass   |
+| UC1         | FR1            | TC1.I2       | Pass   |
+| UC2         | FR2            | TC2.U1       | Pass   |
+| UC2         | FR2            | TC2.U2       | Pass   |
+| UC2         | FR2            | TC2.U3       | Pass   |
+| UC2         | FR2            | TC2.I1       | Pass   |
+| UC2         | FR2            | TC2.I2       | Pass   |
+| UC2         | FR2            | TC2.I3       | Pass   |
+| UC3         | FR3            | TC3.U1       | Pass   |
+| UC3         | FR3            | TC3.U2       | Pass   |
+| UC3         | FR3            | TC3.U3       | Pass   |
+| UC3         | FR3            | TC3.I1       | Pass   |
+| UC3         | FR3            | TC3.I2       | Pass   |
+| UC3         | FR3            | TC3.I3       | Pass   |
+| UC3         | FR4            | TC4.U1       | Pass   |
+| UC3         | FR4            | TC4.U2       | Pass   |
+| UC3         | FR4            | TC4.U3       | Pass   |
+| UC3         | FR4            | TC4.I1       | Pass   |
+| UC3         | FR4            | TC4.I2       | Pass   |
+| UC3         | FR4            | TC4.I3       | Pass   |
+| UC4         | FR5            | TC5.U1       | Pass   |
+| UC4         | FR5            | TC5.U2       | Pass   |
+| UC4         | FR5            | TC5.U3       | Pass   |
+| UC4         | FR5            | TC5.I1       | Pass   |
+| UC4         | FR5            | TC5.I2       | Pass   |
+| UC4         | FR5            | TC5.I3       | Pass   |
+| UC4         | FR6            | TC6.U1       | Pass   |
+| UC4         | FR6            | TC6.U2       | Pass   |
+| UC4         | FR6            | TC6.U3       | Pass   |
+| UC4         | FR6            | TC6.I1       | Pass   |
+| UC4         | FR6            | TC6.I2       | Pass   |
+| UC4         | FR6            | TC6.I3       | Pass   |
+| UC5, UC6    | FR7            | TC7.U1       | Pass   |
+| UC5, UC6    | FR7            | TC7.U2       | Pass   |
+| UC5, UC6    | FR7            | TC7.U3       | Pass   |
+| UC5, UC6    | FR7            | TC7.I1       | Pass   |
+| UC5, UC6    | FR7            | TC7.I2       | Pass   |
+| UC5, UC6    | FR7            | TC7.I3       | Pass   |
+| UC5, UC6    | FR8            | TC8.U1       | Pass   |
+| UC5, UC6    | FR8            | TC8.U2       | Pass   |
+| UC5, UC6    | FR8            | TC8.U3       | Pass   |
+| UC5, UC6    | FR8            | TC8.I1       | Pass   |
+| UC5, UC6    | FR8            | TC8.I2       | Pass   |
+| UC5, UC6    | FR8            | TC8.I3       | Pass   |
+| UC6         | FR9            | TC9.U1       | Pass   |
+| UC6         | FR9            | TC9.U2       | Pass   |
+| UC6         | FR9            | TC9.U3       | Pass   |
+| UC6         | FR9            | TC9.I1       | Pass   |
+| UC6         | FR9            | TC9.I2       | Pass   |
+| UC6         | FR9            | TC9.I3       | Pass   |
+| N/A         | FR16–18        | TC16.U2      | Pass   |
+| N/A         | FR16–18        | TC16.I1      | Pass   |
+| N/A         | FR16–18        | TC16.I2      | Pass   |
+| UC5, UC6    | NFR1           | TC19.U1      | Pass   |
+| UC5, UC6    | NFR1           | TC19.U2      | Pass   |
+| UC5, UC6    | NFR1           | TC19.I1      | Pass   |
+| UC5, UC6    | NFR1           | TC19.I2      | Pass   |
+| UC1–UC6     | NFR2           | TC20.U1      | Pass   |
+| UC1–UC6     | NFR2           | TC20.U2      | Pass   |
+| UC1–UC6     | NFR2           | TC20.I1      | Pass   |
+| UC1–UC6     | NFR2           | TC20.I2      | Pass   |
+| UC5, UC6    | NFR3           | TC21.U1      | Pass   |
+| UC5, UC6    | NFR3           | TC21.U2      | Pass   |
+| UC5, UC6    | NFR3           | TC21.I1      | Pass   |
+| UC5, UC6    | NFR3           | TC21.I2      | Pass   |
+| UC1–UC6     | NFR4           | TC22.U1      | Pass   |
+| UC1–UC6     | NFR4           | TC22.U2      | Pass   |
+| UC1–UC6     | NFR4           | TC22.I1      | Pass   |
+| UC1–UC6     | NFR4           | TC22.I2      | Pass   |
+| UC1–UC6     | NFR5           | TC23.U1      | Pass   |
+| UC1–UC6     | NFR5           | TC23.U2      | Pass   |
+| UC1–UC6     | NFR5           | TC23.I1      | Pass   |
+| UC1–UC6     | NFR5           | TC23.I2      | Pass   |
+| UC5, UC6    | NFR6–7         | TC24.U1      | Pass   |
+| UC5, UC6    | NFR6–7         | TC24.U2      | Pass   |
+| UC5, UC6    | NFR6–7         | TC24.I1      | Pass   |
+| UC5, UC6    | NFR6–7         | TC24.I2      | Pass   |
+| N/A         | N/A            | TC-E2E1      | Pass   |
+| N/A         | N/A            | TC-E2E2      | Pass   |
+| N/A         | N/A            | TC-E2E3      | Pass   |
+| N/A         | N/A            | TC-E2E4      | Pass   |
+| N/A         | N/A            | TC-E2E5      | Pass   |
+| N/A         | N/A            | TC-E2E6      | Pass   |
