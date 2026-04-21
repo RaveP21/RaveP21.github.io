@@ -180,6 +180,8 @@
 
 <script>
     const params = new URLSearchParams(window.location.search);
+    const role = params.get("role"); //extracts the role
+
     const ward = params.get("ward");
 
     document.getElementById("wardInput").value = ward;

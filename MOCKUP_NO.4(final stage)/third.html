@@ -192,6 +192,8 @@
     const params = new URLSearchParams(window.location.search);  //reads the full url
     const role = params.get("role"); //extracts the role
 
+    document.getElementById("RolePage2").value = role;
+
     console.log("user role:", role);  //storing ti for later use frfr
     window.userRole = role; //making it global
     document.getElementById("Role").value = role;

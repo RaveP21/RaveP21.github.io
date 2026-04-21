@@ -17,6 +17,7 @@
         // the ward_code needs to be sent to page 4, from where the it forwards it again to page 7
         // Function mapInfo takes ward coordinate data url, transforms it to usable object
         //  and creates loop for drawward function for all features
+
         function mapInfo(){
             let url = "https://maps2.bristol.gov.uk/server2/rest/services/ext/ll_boundaries/MapServer/4/query?where=1%3D1&outFields=*&outSR=4326&f=json&resultRecordCount=1000";
             fetch(url).then(r=>r.json()).then(json =>{
@@ -39,6 +40,8 @@
         function drawWard(feature, map){
 
             let a = feature.attributes;
+            let wardName = a.NAME;
+            let wardCode = a.WARD_ID;
 
             let ring = feature.geometry.rings[0];
 
@@ -72,7 +75,7 @@
               });
 
             polygon.on("click", function () {//changing the output url depending on the clicked marker
-                window.location.href = `forth.html?role=${role}&ward=${encodeURIComponent(a.NAME)}`;
+                window.location.href = `forth.html?role=${role}&ward=${encodeURIComponent(wardCode)}`;
     });
 
         }
@@ -120,7 +123,7 @@
     <div class="box1">
         <logo>
 
-        <a href="second.html"><img src="1.jpg" width="100"; hight="100;"></a>
+            <a href="second.html"><img src="1.jpg" width="100"; hight="100;"></a>
 
         </logo>
     </div>

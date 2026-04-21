@@ -104,7 +104,7 @@
                 const button = document.createElement("button");
                 button.type = "submit";
                 button.name = "ward";
-                button.value = item.name;              //got bored and tried to look for where the change from name to code might need to happen, and this might be it,
+                button.value = item.id;              //got bored and tried to look for where the change from name to code might need to happen, and this might be it,
                                                        //but still, this might change the value sent but the page 7 would still try to read "ward name" and would get nothing so change needs to happen there too, or not idk
                 const box = document.createElement("div");
                 box.className = "wardBox";
