@@ -51,11 +51,11 @@
             return search.toLowerCase().split(" ").filter(word => word);//turns the search into lower case to match the keywords and
         }                                                               //turns the search into an array of the words while filter, filters out any " " values
 
-        function calculateScore(wardName, keywords, searchTerms) {      //this takes all the ward names, their key words and the searchTerms
+        function calculateScore(wName, keywords, searchTerms) {      //this takes all the ward names, their key words and the searchTerms
             let score = 0;
 
             searchTerms.forEach(term => {
-                if (wardName.toLowerCase().includes(term)) {            //takes the wardNames, compares it to the search term to see if any ward names were mentioned
+                if (wName.toLowerCase().includes(term)) {            //takes the Wnames, compares it to the search term to see if any ward names were mentioned
                     score += 5;                                         //if so, gives those wards +5 points
                 }
 
@@ -106,6 +106,15 @@
                 button.name = "ward";
                 button.value = item.id;              //got bored and tried to look for where the change from name to code might need to happen, and this might be it,
                                                        //but still, this might change the value sent but the page 7 would still try to read "ward name" and would get nothing so change needs to happen there too, or not idk
+                
+                // Add hidden input for ward name
+                const nameInput = document.createElement("input");
+                nameInput.type = "hidden";
+                nameInput.name = "Wname";
+                nameInput.value = item.name;
+                
+                form.appendChild(nameInput);
+
                 const box = document.createElement("div");
                 box.className = "wardBox";
 

@@ -75,6 +75,7 @@
 
                const params = new URLSearchParams(window.location.search);  //this reads the url data
                const selectedTags = params.getAll("info");  //this strips the url data to get info data
+               
 
                const main = document.querySelector("main");  //this connects the <script> with main
 
@@ -95,15 +96,19 @@
            function graphNdShi(tag, data, main) {  //This is the actual FUNCTION that the collected data is gana be used in
 
                const container = document.createElement("div"); //this creates a <div></div> for later implimentation using .appendChild()
+               const chartRow = document.createElement("div");     //this creates a <div></div> for later implimentation using .appendChild()
+               chartRow.style.display = "flex";
+               chartRow.style.gap = "20px";          // space between graphs
+               chartRow.style.alignItems = "center"; // vertical alignment
+
 
                const params = new URLSearchParams(window.location.search);  //this reads the url data
-               const selectedTags = params.getAll("Wname");  //this strips the url data to get ward name data
-
+               const features = data.features;   //assigning data.features to the name "features"
                const title = document.createElement("h2");  //this creats a <h2></h2> for later implimentation using .appendChild()
-               title.textContent = "Ward Ranking (Tag " + tag + "(" + Wname +")";  //this defines what the title looks like
+               title.textContent = "Ward Ranking (Tag " + tag + ")";  //this defines what the title looks like
                container.appendChild(title);   // this is the part that solves world hunger. here the title gets put in the container
 
-               const features = data.features;   //assigning data.features to the name "features"
+               
 
                if (!features || features.length === 0) {  //if features not found or === 0, kill it. this is hella usefull to see if all the datasets are working/returning calls
                    container.appendChild(document.createTextNode("No data"));
@@ -111,62 +116,82 @@
                    return;
                }
 
-               const sample = features[0].attributes;   //idk what this does from line 106 to 137, for now it is just a placeholder to be understood and later removed/ edited to add something that is understood
-                                                        //my best guess is, it has something to do with which data from the dataset is displayed
-               let chosenKey = null;
+               // Get all numeric fields from first feature to determine which metric to rank by
+               const sample = features[0].attributes;
+               let rankingMetric = null;
+               
                for (let key in sample) {
-                   if (typeof sample[key] === "number") {
-                       chosenKey = key;
-                       break;
+                   const value = sample[key];
+                   if (typeof value === "number" && 
+                       !key.includes("CODE") && 
+                       !key.includes("ID") && 
+                       !key.includes("YEAR") &&
+                       !key.includes("PERIOD")) {
+                       rankingMetric = key;
+                       break; // Use first numeric field as ranking metric
                    }
                }
 
-               if (!chosenKey) {
-                   container.appendChild(document.createTextNode("No numeric data"));
+               if (!rankingMetric) {
+                   container.appendChild(document.createTextNode("No numeric data to rank"));
                    main.appendChild(container);
                    return;
                }
 
-               const combined = features
-                   .map(f => {
-                       const a = f.attributes;
-                       return {
-                           ward: a.WARD_NAME,
-                           value: a[chosenKey]
-                       };
-                   })
-                   .filter(x => x.ward && typeof x.value === "number");
+               // Rank ALL wards by the selected metric
+               const wardRankings = features
+                   .filter(f => f.attributes[rankingMetric] !== null && f.attributes[rankingMetric] !== undefined)
+                   .map(f => ({
+                       wardName: f.attributes.WARD_NAME || f.attributes.Ward_name || f.attributes.NAME || "Unknown",
+                       value: f.attributes[rankingMetric]
+                   }))
+                   .sort((a, b) => b.value - a.value)
+                   .slice(0, 15); // Show top 15 wards
 
-               combined.sort((a, b) => b.value - a.value);
-
-               const top = combined.slice(0, 10);
-
-               const labels = top.map(x => x.ward);
-               const values = top.map(x => x.value);
+               const labels = wardRankings.map(w => w.wardName);
+               const values = wardRankings.map(w => w.value);
 
                const canvas = document.createElement("canvas");
+               canvas.width = 1200;
+               canvas.height = 400;
 
-
-
-              canvas.width = 1200;   // size changer
-               canvas.height = 300;
-
-               new Chart(canvas, { //using the previously defined "canvas" in line 144 (above the size changer) actually defining what the chat looks like
-                   type: 'bar',    //the data used for the chats are random but sorted upto the tags, for each tag the right dataset is called and is on hand but we have to think about what data to display from the dataset
+               new Chart(canvas, {
+                   type: 'bar',
                    data: {
                        labels: labels,
                        datasets: [{
-                           label: chosenKey,
-                           data: values
+                           label: rankingMetric.replaceAll("_", " "),
+                           data: values,
+                           backgroundColor: 'rgba(75, 192, 192, 0.7)',
+                           borderColor: 'rgba(75, 192, 192, 1)',
+                           borderWidth: 1
                        }]
                    },
                    options: {
                        indexAxis: 'y',
-                       responsive: false   // this lets us edit the size
+                       responsive: false,
+                       plugins: {
+                           legend: {
+                               display: true
+                           }
+                       },
+                       scales: {
+                           y: {
+                               ticks: {
+                                   callback: function(value) {
+                                       return labels[value];
+                                   }
+                               }
+                           },
+                           x: {
+                               beginAtZero: true
+                           }
+                       }
                    }
                });
-               container.appendChild(canvas);   //put the "canvas" box into the container box
-               main.appendChild(container);     //puts the "container" box into the main where it will be displayed
+
+               container.appendChild(canvas);
+               main.appendChild(container);
            }
 
     </script>
