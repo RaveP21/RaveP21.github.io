@@ -1,8 +1,6 @@
 # Implementation
 
 ## Introduction
-TODO: Describe the system implemented (Describe the dataset. Are there any known issues? Describe any configuration data).
-
 ### System Overview
 The system is a client-side, multi-page web application that enables users to explore and analyse ward-level data for Bristol. It collects three key inputs—user role, ward, and data tags—which are passed through the application via URL parameters and used to dynamically retrieve and visualise data from external APIs.
 
@@ -28,11 +26,13 @@ TODO: Provide an outline of the project folder structure and the role of each fi
 provide a table listing the number of jslint warnings/reports for each module.
 
 ### Folder Structure 
+<img width="750" height="750" alt="image" src="https://github.com/user-attachments/assets/bae9d3b5-2e42-4fd6-8609-3cf861948f45" />
+
 
 ### Jslint warnings
 
 ### Explaintion
-The project follows a modular page-based structure where each file corresponds to a specific stage in the user journey. Separation of concerns is achieved by distributing responsibilities across pages, such as input collection, processing, and visualisation.
+The project follows a modular page-based structure where each file corresponds to a specific stage in the user journey. Separation of concerns is achieved by distributing responsibilities across pages, such as input collection (page 1, 2, 3, 4), processing (page 5, 6, 7), and visualisation (page 5, 7).
 
 ## Software Architecture
 TODO: Describe the major components of your architecture. Are any particular architectural styles being used?
@@ -41,6 +41,15 @@ TODO: Describe the major components of your architecture. Are any particular arc
 The system follows a client-side, data-driven architecture with elements of event-driven design. It is also stateless, as user data is passed between pages using URL parameters rather than persistent storage.
 
 ### Component Defination
+| Component             | Responsibility                            |
+| --------------------- | ----------------------------------------- |
+| UI Layer              | User interaction (forms, map, checklists) |
+| State Management      | URL parameter handling                    |
+| Navigation Controller | Page transitions                          |
+| Data Fetch Layer      | API calls via `fetch()`                   |
+| Processing Layer      | Ranking, filtering, transformation        |
+| Visualisation Layer   | Chart.js rendering                        |
+| Configuration Layer   | Tag → dataset mapping                     |
 
 ### Explaination
 The system separates concerns into distinct layers. User input is captured in the UI layer and passed through the navigation controller using URL parameters. The data fetch layer retrieves external datasets, which are processed and transformed before being rendered in the visualisation layer. This design ensures flexibility, allowing multiple user flows (map-based or search-based) to reach the same processing endpoints.
@@ -51,9 +60,11 @@ The system separates concerns into distinct layers. User input is captured in th
 
 ## Bristol Open Data API
 TODO: Document each query to Bristol Open Data
+<img width="1293" height="772" alt="1" src="https://github.com/user-attachments/assets/abbed73c-8cd2-435f-bf0b-6cec7ba9e9f9" />
+<img width="1053" height="636" alt="2" src="https://github.com/user-attachments/assets/c3abb008-0b7a-402a-9485-41352031f180" />
+<img width="1405" height="782" alt="3" src="https://github.com/user-attachments/assets/8822ab46-7724-4277-8d05-a4891fc37676" />
+<img width="1362" height="751" alt="4" src="https://github.com/user-attachments/assets/25edf21d-67b8-4bfb-903c-46c9a5113992" />
 
-![UML Class diagrams representing JSON query results](images/class1.png)
-TODO: Repeat as necessary
 
 ### Class Diagrams
 
