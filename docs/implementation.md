@@ -2,10 +2,10 @@
 
 ## Introduction
 ### System Overview
-The system is a client-side, multi-page web application that enables users to explore and analyse ward-level data for Bristol. It collects three key inputs—user role, ward, and data tags—which are passed through the application via URL parameters and used to dynamically retrieve and visualise data from external APIs.
+This system is a client-side, multi-page web application, which allows a user to browse and analyze data at a ward level in Bristol. The inputs required from a user include the user’s role, ward name, and data tags. These inputs are then passed in the URL of the application and used to dynamically retrieve and visualise data from external APIs.
 
 ### Dataset Description
-The system integrates with the Bristol Open Data API, which provides datasets in JSON format, typically structured as GeoJSON. Each dataset contains a features array, where each feature represents a ward-level record with associated attributes (e.g. crime statistics, population metrics).
+The platform utilizes the Bristol Open Data API that offers its data sets in JSON format, commonly in GeoJSON format. The data set has features array, with each feature being a ward level record containing attributes (e.g. crime statistics, population metrics).
 
 A total of 16 datasets are used, derived from an initial selection of 48 datasets, refined through filtering and mapping into 24 user-facing tags. Some tags share datasets but use pre-filtered API queries to reduce unnecessary data processing.
 
@@ -19,12 +19,9 @@ Several limitations arise from the external API:
 To handle this, the system uses fallback logic and dynamically selects usable numeric values, though this may not always represent the most meaningful metric.
 
 ### Configuration Data
-The system uses a configuration mapping object (pissbot) that links each tag ID to a specific API endpoint. This allows dynamic dataset selection based on user input and acts as the core mechanism connecting frontend interaction to backend data retrieval.
+The configuration of mapping used by the system is the (pissbot). In it, there is a unique mapping between the ID of the tag and the respective API URL. This mapping will enable the dynamic selection of datasets depending on the user’s choice.
 
 ## Project Structure
-TODO: Provide an outline of the project folder structure and the role of each file within it.
-provide a table listing the number of jslint warnings/reports for each module.
-
 ### Folder Structure 
 <img width="750" height="750" alt="image" src="https://github.com/user-attachments/assets/bae9d3b5-2e42-4fd6-8609-3cf861948f45" />
 
@@ -35,7 +32,6 @@ provide a table listing the number of jslint warnings/reports for each module.
 The project follows a modular page-based structure where each file corresponds to a specific stage in the user journey. Separation of concerns is achieved by distributing responsibilities across pages, such as input collection (page 1, 2, 3, 4), processing (page 5, 6, 7), and visualisation (page 5, 7).
 
 ## Software Architecture
-TODO: Describe the major components of your architecture. Are any particular architectural styles being used?
 
 ### Architechture Style
 The system follows a client-side, data-driven architecture with elements of event-driven design. It is also stateless, as user data is passed between pages using URL parameters rather than persistent storage.
@@ -56,24 +52,18 @@ The system separates concerns into distinct layers. User input is captured in th
 
 ### Diagram
 
-![Insert your component Diagram here](images/component.png)
-
 ## Bristol Open Data API
-TODO: Document each query to Bristol Open Data
+### Class Diagrams
 <img width="1293" height="772" alt="1" src="https://github.com/user-attachments/assets/abbed73c-8cd2-435f-bf0b-6cec7ba9e9f9" />
 <img width="1053" height="636" alt="2" src="https://github.com/user-attachments/assets/c3abb008-0b7a-402a-9485-41352031f180" />
 <img width="1405" height="782" alt="3" src="https://github.com/user-attachments/assets/8822ab46-7724-4277-8d05-a4891fc37676" />
 <img width="1362" height="751" alt="4" src="https://github.com/user-attachments/assets/25edf21d-67b8-4bfb-903c-46c9a5113992" />
-
-
-### Class Diagrams
 
 ### Structure explaination
 All datasets follow a similar structure:
 
    1) "features[] → array of records"
    2) "attributes{} → contains data values"
-   3) "geometry{} → spatial data (for map datasets)"
 
 # User guide
 TODO: Explain how each use-case works by providing step-by-step screenshots for each use-case. This should be based on a tested scenario.
