@@ -41,6 +41,15 @@ TODO: Describe the major components of your architecture. Are any particular arc
 The system follows a client-side, data-driven architecture with elements of event-driven design. It is also stateless, as user data is passed between pages using URL parameters rather than persistent storage.
 
 ### Component Defination
+| Component             | Responsibility                            |
+| --------------------- | ----------------------------------------- |
+| UI Layer              | User interaction (forms, map, checklists) |
+| State Management      | URL parameter handling                    |
+| Navigation Controller | Page transitions                          |
+| Data Fetch Layer      | API calls via `fetch()`                   |
+| Processing Layer      | Ranking, filtering, transformation        |
+| Visualisation Layer   | Chart.js rendering                        |
+| Configuration Layer   | Tag → dataset mapping                     |
 
 ### Explaination
 The system separates concerns into distinct layers. User input is captured in the UI layer and passed through the navigation controller using URL parameters. The data fetch layer retrieves external datasets, which are processed and transformed before being rendered in the visualisation layer. This design ensures flexibility, allowing multiple user flows (map-based or search-based) to reach the same processing endpoints.
