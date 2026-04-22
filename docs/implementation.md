@@ -28,6 +28,8 @@ TODO: Provide an outline of the project folder structure and the role of each fi
 provide a table listing the number of jslint warnings/reports for each module.
 
 ### Folder Structure 
+<img width="567" height="747" alt="image" src="https://github.com/user-attachments/assets/bae9d3b5-2e42-4fd6-8609-3cf861948f45" />
+
 
 ### Jslint warnings
 
