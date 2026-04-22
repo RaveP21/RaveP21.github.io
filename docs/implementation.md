@@ -1,8 +1,6 @@
 # Implementation
 
 ## Introduction
-TODO: Describe the system implemented (Describe the dataset. Are there any known issues? Describe any configuration data).
-
 ### System Overview
 The system is a client-side, multi-page web application that enables users to explore and analyse ward-level data for Bristol. It collects three key inputs—user role, ward, and data tags—which are passed through the application via URL parameters and used to dynamically retrieve and visualise data from external APIs.
 
