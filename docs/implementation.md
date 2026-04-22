@@ -53,9 +53,11 @@ The system separates concerns into distinct layers. User input is captured in th
 
 ## Bristol Open Data API
 TODO: Document each query to Bristol Open Data
+<img width="1293" height="772" alt="1" src="https://github.com/user-attachments/assets/abbed73c-8cd2-435f-bf0b-6cec7ba9e9f9" />
+<img width="1053" height="636" alt="2" src="https://github.com/user-attachments/assets/c3abb008-0b7a-402a-9485-41352031f180" />
+<img width="1405" height="782" alt="3" src="https://github.com/user-attachments/assets/8822ab46-7724-4277-8d05-a4891fc37676" />
+<img width="1362" height="751" alt="4" src="https://github.com/user-attachments/assets/25edf21d-67b8-4bfb-903c-46c9a5113992" />
 
-![UML Class diagrams representing JSON query results](images/class1.png)
-TODO: Repeat as necessary
 
 ### Class Diagrams
 
