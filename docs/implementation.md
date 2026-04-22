@@ -28,13 +28,13 @@ TODO: Provide an outline of the project folder structure and the role of each fi
 provide a table listing the number of jslint warnings/reports for each module.
 
 ### Folder Structure 
-<img width="567" height="747" alt="image" src="https://github.com/user-attachments/assets/bae9d3b5-2e42-4fd6-8609-3cf861948f45" />
+<img width="750" height="750" alt="image" src="https://github.com/user-attachments/assets/bae9d3b5-2e42-4fd6-8609-3cf861948f45" />
 
 
 ### Jslint warnings
 
 ### Explaintion
-The project follows a modular page-based structure where each file corresponds to a specific stage in the user journey. Separation of concerns is achieved by distributing responsibilities across pages, such as input collection, processing, and visualisation.
+The project follows a modular page-based structure where each file corresponds to a specific stage in the user journey. Separation of concerns is achieved by distributing responsibilities across pages, such as input collection (page 1, 2, 3, 4), processing (page 5, 6, 7), and visualisation (page 5, 7).
 
 ## Software Architecture
 TODO: Describe the major components of your architecture. Are any particular architectural styles being used?
