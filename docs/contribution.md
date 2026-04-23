@@ -1,23 +1,9 @@
 # Contribution Guidelines
 
-## Overflow Fix and Completed Table Content
-
-Please follow the guidelines below to contribute effectively:
-
-1. **Fork the repository**: Create a personal copy of the repo on your own GitHub account.
-2. **Create a feature branch**: Make a new branch for your feature using a descriptive name.
-3. **Make your changes**: Edit the files you wish to change, ensuring that you don’t introduce bugs or inefficiencies.
-4. **Update the documentation**: Make sure to keep documentation up-to-date after your changes.
-5. **Submit a pull request**: Provide a clear description of the changes you have made.
-
-### Updated Table:
-| Feature      | Description              |
-|--------------|--------------------------|
-| Feature 1   | Short description        |
-| Feature 2   | Short description        |
-| Feature 3   | Short description        |
-| Feature 4   | Short description        |
-
-### Additional Notes:
-- Ensure your code follows the established coding standards.
-- Test your changes thoroughly before submitting.
+| Planning Stage   | Both members were present to discuss the function and value of the website. Both members were aligned with the business case     | Sami + Charlie    |
+| Design Stage    | Both members created simiar mockups during the same tutorial mockups were critically improved and arrenged for submission by Sami     | Sami + Charlie    |
+| Requirements Stage   |  Charlie was present for the initial business case tutorial, however the full meaning of the business case would not be achieved until recently by Sami    | Sami + Charlie    |
+| Implementation  Stage  | Charlie was focused on creating an interactable map that highlights the wards when hovered while Sami created the backbone for the eventual value streams. <br>
+| Implementation  Stage  | Charlie was focused on creating an interactable map that highlights the wards when hovered while Sami created the backbone for the eventual value streams.
+Sami worked on making sure data would be processed from page to page and implemented with the eventual api call Charlie cleaned this up and made sure the graphs represented actual chosen valuable data but struggled to rank wards by selected tag.     | Sami + Charlie    |
+| Testing  Stage  |     | Sami    |
