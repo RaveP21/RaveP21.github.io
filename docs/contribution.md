@@ -1,3 +1,5 @@
-# TODO: Enter the contributions of each team member
+# Contribution
 
-1. TEAM MEMBER CONTRIBUTION
+\| Development Stage | What was done | Who Contributed |
+\|--------------------|--------------------------------|
+|Planning | Members discussed

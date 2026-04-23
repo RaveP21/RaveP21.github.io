@@ -107,9 +107,9 @@
                 button.value = item.id;              //got bored and tried to look for where the change from name to code might need to happen, and this might be it,
                                                        //but still, this might change the value sent but the page 7 would still try to read "ward name" and would get nothing so change needs to happen there too, or not idk
                 
-                // Add hidden input for ward name
-                const nameInput = document.createElement("input");
-                nameInput.type = "hidden";
+                
+                const nameInput = document.createElement("input") ;// Add hidden input for ward name
+                nameInput.type = "hidden";                         // this is so the ward name can be sent to page 7 without the user having to click on it.
                 nameInput.name = "Wname";
                 nameInput.value = item.name;
                 

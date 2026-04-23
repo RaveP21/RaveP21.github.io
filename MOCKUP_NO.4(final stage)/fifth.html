@@ -15,59 +15,59 @@
 
 
            const pissbot = {  //this is adding all the API urls and assigns them to (1,2,3...27) cuz chosen tags return "info=1,info=2,...info=27"
-           "1": "https://maps2.bristol.gov.uk/server2/rest/services/ext/ward_profiles/MapServer/1/query?where=1%3D1&outFields=WARD_CODE,WARD_NAME,SOCIAL_CARE_TYPE,PERIOD,NUM_SERVICE_USERS,AVG_WEEKLY_COST&outSR=4326&f=json",
+           "1": "https://maps2.bristol.gov.uk/server2/rest/services/ext/ward_profiles/MapServer/1/query?where=1%3D1&outFields=WARD_CODE,WARD_NAME,SOCIAL_CARE_TYPE,PERIOD,NUM_SERVICE_USERS,AVG_WEEKLY_COST&outSR=4326&f=json", // Social Care
 
-           "2": "https://maps2.bristol.gov.uk/server2/rest/services/ext/ward_profiles/MapServer/3/query?where=1%3D1&outFields=*&outSR=4326&f=json",
+           "2": "https://maps2.bristol.gov.uk/server2/rest/services/ext/ward_profiles/MapServer/3/query?where=1%3D1&outFields=*&outSR=4326&f=json", // Low Income
 
-           "3": "https://maps2.bristol.gov.uk/server2/rest/services/ext/ward_profiles/MapServer/4/query?where=1%3D1&outFields=WARD_CODE,WARD_NAME,PERIOD,MID_YEAR_POP_EST_0_17,TOTAL_CHILDREN_SOCIAL_CARE_NUM&outSR=4326&f=json",
+           "3": "https://maps2.bristol.gov.uk/server2/rest/services/ext/ward_profiles/MapServer/4/query?where=1%3D1&outFields=WARD_CODE,WARD_NAME,PERIOD,MID_YEAR_POP_EST_0_17,TOTAL_CHILDREN_SOCIAL_CARE_NUM&outSR=4326&f=json", // Children in Social Care
 
-           "4": "https://maps2.bristol.gov.uk/server2/rest/services/ext/ward_profiles/MapServer/6/query?where=1%3D1&outFields=*&outSR=4326&f=json",
+           "4": "https://maps2.bristol.gov.uk/server2/rest/services/ext/ward_profiles/MapServer/6/query?where=1%3D1&outFields=*&outSR=4326&f=json",// Crime
 
-           "5": "https://maps2.bristol.gov.uk/server2/rest/services/ext/ward_profiles/MapServer/18/query?where=1%3D1&outFields=*&outSR=4326&f=json",
+           "5": "https://maps2.bristol.gov.uk/server2/rest/services/ext/ward_profiles/MapServer/18/query?where=1%3D1&outFields=*&outSR=4326&f=json", // KS2 Attainment (Education)
 
-           "6": "https://maps2.bristol.gov.uk/server2/rest/services/ext/ward_profiles/MapServer/13/query?where=1%3D1&outFields=WARD_CODE,WARD_NAME,NOLONGTRM_HEALTH_CONDITIONS,PCNOLONGTRM_HEALTH_CONDITIONS&outSR=4326&f=json",
+           "6": "https://maps2.bristol.gov.uk/server2/rest/services/ext/ward_profiles/MapServer/13/query?where=1%3D1&outFields=WARD_CODE,WARD_NAME,NOLONGTRM_HEALTH_CONDITIONS,PCNOLONGTRM_HEALTH_CONDITIONS&outSR=4326&f=json", // Healthy Lifestyles
 
-           "7": "https://maps2.bristol.gov.uk/server2/rest/services/ext/ward_profiles/MapServer/13/query?where=1%3D1&outFields=WARD_CODE,WARD_NAME,TOTAL_RES_POP_DISABILITY,DISABLED_UNDER_EQUALITY_ACT,PCDISABLED_UNDER_EQUALITY_ACT&outSR=4326&f=json",
+           "7": "https://maps2.bristol.gov.uk/server2/rest/services/ext/ward_profiles/MapServer/13/query?where=1%3D1&outFields=WARD_CODE,WARD_NAME,TOTAL_RES_POP_DISABILITY,DISABLED_UNDER_EQUALITY_ACT,PCDISABLED_UNDER_EQUALITY_ACT&outSR=4326&f=json", // Health and Disability (Census)
 
-           "8": "https://maps2.bristol.gov.uk/server2/rest/services/ext/ward_profiles/MapServer/19/query?where=1%3D1&outFields=WARD_CODE,WARD_NAME,GENDER,PERIOD,LIFE_EXPECTANCY_YEARS&outSR=4326&f=json",
+           "8": "https://maps2.bristol.gov.uk/server2/rest/services/ext/ward_profiles/MapServer/19/query?where=1%3D1&outFields=WARD_CODE,WARD_NAME,GENDER,PERIOD,LIFE_EXPECTANCY_YEARS&outSR=4326&f=json", // Life Expectancy
 
-           "9": "https://maps2.bristol.gov.uk/server2/rest/services/ext/ward_profiles/MapServer/22/query?where=1%3D1&outFields=WARD_CODE,WARD_NAME,PREMATURE_MORTALITY_TYPE,PERIOD,WARD_STATISTIC_RATE&outSR=4326&f=json",
+           "9": "https://maps2.bristol.gov.uk/server2/rest/services/ext/ward_profiles/MapServer/22/query?where=1%3D1&outFields=WARD_CODE,WARD_NAME,PREMATURE_MORTALITY_TYPE,PERIOD,WARD_STATISTIC_RATE&outSR=4326&f=json", // Premature Mortality
 
-           "10": "https://maps2.bristol.gov.uk/server2/rest/services/ext/ward_profiles/MapServer/15/query?where=1%3D1&outFields=WARD_CODE,WARD_NAME,ALL_HH_CAR_AVAIL,NO_CARS_VANS_IN_HH,CAR_VAN_IN_HH_1,CAR_VAN_IN_HH_2,CAR_VAN_IN_HH_3,PC_TOTAL_UNDEROCC_RATING_BED,PC_NO_CARS_VANS_IN_HH,PC_CAR_VAN_IN_HH_1,PC_CAR_VAN_IN_HH_2,PC_CAR_VAN_IN_HH_3&outSR=4326&f=json",
+           "10": "https://maps2.bristol.gov.uk/server2/rest/services/ext/ward_profiles/MapServer/15/query?where=1%3D1&outFields=WARD_CODE,WARD_NAME,ALL_HH_CAR_AVAIL,NO_CARS_VANS_IN_HH,CAR_VAN_IN_HH_1,CAR_VAN_IN_HH_2,CAR_VAN_IN_HH_3,PC_TOTAL_UNDEROCC_RATING_BED,PC_NO_CARS_VANS_IN_HH,PC_CAR_VAN_IN_HH_1,PC_CAR_VAN_IN_HH_2,PC_CAR_VAN_IN_HH_3&outSR=4326&f=json", // Car Availability (Census)
 
-           "11": "https://maps2.bristol.gov.uk/server2/rest/services/ext/ward_profiles/MapServer/14/query?where=1%3D1&outFields=WARD_CODE,WARD_NAME,ALL_HOUSEHOLDS,ONE_PERSON_HH_TOTAL,SNGLFAM_HH_TOTAL,MULTFAM_HH_TOTAL,PC_ONE_PERSON_HH_TOTAL,PC_SNGLFAM_HH_TOTAL,PC_TOTAL_HH_DEP_CHILDREN,PC_MULTFAM_HH_TOTAL,TOTAL_HH_DEP_CHILDREN&outSR=4326&f=json",
+           "11": "https://maps2.bristol.gov.uk/server2/rest/services/ext/ward_profiles/MapServer/14/query?where=1%3D1&outFields=WARD_CODE,WARD_NAME,ALL_HOUSEHOLDS,ONE_PERSON_HH_TOTAL,SNGLFAM_HH_TOTAL,MULTFAM_HH_TOTAL,PC_ONE_PERSON_HH_TOTAL,PC_SNGLFAM_HH_TOTAL,PC_TOTAL_HH_DEP_CHILDREN,PC_MULTFAM_HH_TOTAL,TOTAL_HH_DEP_CHILDREN&outSR=4326&f=json", // Household Composition (Census)
 
-           "12": "Housing price data not available",
+           "12": "Housing price data not available",  //                number 12 was removes as housing prices was not part of open data bristol
 
-           "13": "https://maps2.bristol.gov.uk/server2/rest/services/ext/ward_profiles/MapServer/15/query?where=1%3D1&outFields=WARD_CODE,WARD_NAME,TOTAL_HOUSEHOLDS_ACCOMM_TYPE,BEDROOM_1,BEDROOM_2,BEDROOM_3,BEDROOM_4_MORE,TOTAL_UNDEROCC_RATING_BED,TOTAL_OVERC_OCC_RATING_BED,PC_BEDROOM_1,PC_BEDROOM_2,PC_BEDROOM_3,PC_BEDROOM_4_MORE,PC_TOTAL_UNDEROCC_RATING_BED,PC_TOTAL_OVERC_OCC_RATING_BED&outSR=4326&f=json",
+           "13": "https://maps2.bristol.gov.uk/server2/rest/services/ext/ward_profiles/MapServer/15/query?where=1%3D1&outFields=WARD_CODE,WARD_NAME,TOTAL_HOUSEHOLDS_ACCOMM_TYPE,BEDROOM_1,BEDROOM_2,BEDROOM_3,BEDROOM_4_MORE,TOTAL_UNDEROCC_RATING_BED,TOTAL_OVERC_OCC_RATING_BED,PC_BEDROOM_1,PC_BEDROOM_2,PC_BEDROOM_3,PC_BEDROOM_4_MORE,PC_TOTAL_UNDEROCC_RATING_BED,PC_TOTAL_OVERC_OCC_RATING_BED&outSR=4326&f=json", // Household Size (Census)
 
-           "14": "https://maps2.bristol.gov.uk/server2/rest/services/ext/ward_profiles/MapServer/15/query?where=1%3D1&outFields=WARD_CODE,WARD_NAME,TOTAL_HOUSEHOLDS_ACCOMM_TYPE,TOTAL_OWNED,TOTAL_SOCIAL_RENTED,TOTAL_PRIVATE_RENTED_OTHER,PC_TOTAL_OWNED,PC_TOTAL_SOCIAL_RENTED,PC_TOTAL_PRIVATE_RENTED_OTHER&outSR=4326&f=json",
+           "14": "https://maps2.bristol.gov.uk/server2/rest/services/ext/ward_profiles/MapServer/15/query?where=1%3D1&outFields=WARD_CODE,WARD_NAME,TOTAL_HOUSEHOLDS_ACCOMM_TYPE,TOTAL_OWNED,TOTAL_SOCIAL_RENTED,TOTAL_PRIVATE_RENTED_OTHER,PC_TOTAL_OWNED,PC_TOTAL_SOCIAL_RENTED,PC_TOTAL_PRIVATE_RENTED_OTHER&outSR=4326&f=json", // Housing Tenure (Census)
 
-           "15": "https://maps2.bristol.gov.uk/server2/rest/services/ext/ward_profiles/MapServer/15/query?where=1%3D1&outFields=WARD_CODE,WARD_NAME,TOTAL_HOUSEHOLDS_ACCOMM_TYPE,WHOLE_HOUSE_DETACHED,WHOLE_HOUSE_SEMI,WHOLE_HOUSE_TERRACED,FLATS_TOTAL,PC_WHOLE_HOUSE_DETACHED,PC_WHOLE_HOUSE_SEMI,PC_WHOLE_HOUSE_TERRACED,PC_FLATS_TOTAL&outSR=4326&f=json",
+           "15": "https://maps2.bristol.gov.uk/server2/rest/services/ext/ward_profiles/MapServer/15/query?where=1%3D1&outFields=WARD_CODE,WARD_NAME,TOTAL_HOUSEHOLDS_ACCOMM_TYPE,WHOLE_HOUSE_DETACHED,WHOLE_HOUSE_SEMI,WHOLE_HOUSE_TERRACED,FLATS_TOTAL,PC_WHOLE_HOUSE_DETACHED,PC_WHOLE_HOUSE_SEMI,PC_WHOLE_HOUSE_TERRACED,PC_FLATS_TOTAL&outSR=4326&f=json", // Housing Type (Census)
 
-           "16": "Benefits data not available",
+           "16": "Benefits data not available", //               number 16 was removed as benefits wasn't in open data bristol
 
-           "17": "https://maps2.bristol.gov.uk/server2/rest/services/ext/ward_profiles/MapServer/11/query?where=1%3D1&outFields=*&outSR=4326&f=json",
+           "17": "https://maps2.bristol.gov.uk/server2/rest/services/ext/ward_profiles/MapServer/11/query?where=1%3D1&outFields=*&outSR=4326&f=json", // Industry and Occupation (Census)
 
-           "18": "https://maps2.bristol.gov.uk/server2/rest/services/ext/ward_profiles/MapServer/17/query?where=1%3D1&outFields=*&outSR=4326&f=json",
+           "18": "https://maps2.bristol.gov.uk/server2/rest/services/ext/ward_profiles/MapServer/17/query?where=1%3D1&outFields=*&outSR=4326&f=json", // Jobs located in the ward
 
-           "19": "https://maps2.bristol.gov.uk/server2/rest/services/ext/ward_profiles/MapServer/28/query?where=1%3D1&outFields=*&outSR=4326&f=json",
+           "19": "https://maps2.bristol.gov.uk/server2/rest/services/ext/ward_profiles/MapServer/28/query?where=1%3D1&outFields=*&outSR=4326&f=json", // Language Spoken (Census)
 
-           "20": "https://maps2.bristol.gov.uk/server2/rest/services/ext/ward_profiles/MapServer/16/query?where=1%3D1&outFields=WARD_CODE,WARD_NAME,TOTAL_USUALLY_RES_IDENTITY,BORN_OUTSIDE_UK,UNITED_KINGDOM,EU_COUNTRIES,OTHER_EUROPE,AFRICA,MIDDLE_EAST_AND_ASIA,AMERICAS_CARIBBEAN,ANTARCTICA_OCEANIA_OTHER,PC_BORN_OUTSIDE_UK,PC_UNITED_KINGDOM,PC_EU_COUNTRIES,PC_OTHER_EUROPE,PC_AFRICA,PC_MIDDLE_EAST_AND_ASIA,PC_AMERICAS_CARIBBEAN,PC_ANTARCTICA_OCEANIA_OTHER&outSR=4326&f=json",
+           "20": "https://maps2.bristol.gov.uk/server2/rest/services/ext/ward_profiles/MapServer/16/query?where=1%3D1&outFields=WARD_CODE,WARD_NAME,TOTAL_USUALLY_RES_IDENTITY,BORN_OUTSIDE_UK,UNITED_KINGDOM,EU_COUNTRIES,OTHER_EUROPE,AFRICA,MIDDLE_EAST_AND_ASIA,AMERICAS_CARIBBEAN,ANTARCTICA_OCEANIA_OTHER,PC_BORN_OUTSIDE_UK,PC_UNITED_KINGDOM,PC_EU_COUNTRIES,PC_OTHER_EUROPE,PC_AFRICA,PC_MIDDLE_EAST_AND_ASIA,PC_AMERICAS_CARIBBEAN,PC_ANTARCTICA_OCEANIA_OTHER&outSR=4326&f=json", // Country of Birth (Census)
 
-           "21": "Deprivation data not available",
+           "21": "Deprivation data not available", //               number 21 was removed as Deprivation was in the the open data bristol in a relyable way
 
-           "22": "https://maps2.bristol.gov.uk/server2/rest/services/ext/ward_profiles/MapServer/16/query?where=1%3D1&outFields=WARD_CODE,WARD_NAME,TOTAL_RES_POP_ETHNIC_GROUP,WHITE_TOTAL,BAME_GROUP_TOTAL,ASIAN_BANGLADESHI,ASIAN_CHINESE,ASIAN_INDIAN,ASIAN_PAKISTANI,ASIAN_OTHER,BLACK_AFRICAN,BLACK_CARIBBEAN,BLACK_OTHER,MULT_WHITE_ASIAN,MULT_WH_BL_AFRCAN,MULT_WH_BL_CARIBBEAN,MULT_OTHER,WHITE_BRITISH,WHITE_IRISH,WHITE_GYPSY_TRAV,WHITE_ROMA,WHITE_OTHER,OTHER_ARAB,ANY_OTHER_ETHNIC_GROUP,PC_WHITE_TOTAL,PC_BAME_GROUP_TOTAL,PC_ASIAN_BANGLADESHI,PC_ASIAN_CHINESE,PC_ASIAN_INDIAN,PC_ASIAN_PAKISTANI,PC_ASIAN_OTHER,PC_BLACK_AFRICAN,PC_BLACK_CARIBBEAN,PC_BLACK_OTHER,PC_MULT_WHITE_ASIAN,PC_MULT_WH_BL_AFRICAN,PC_MULT_WH_BL_CARIBBEAN,PC_MULT_OTHER,PC_WHITE_BRITISH,PC_WHITE_IRISH,PC_WHITE_GYPSY_TRAV,PC_WHITE_ROMA,PC_WHITE_OTHER,PC_OTHER_ARAB,PC_ANY_OTHER_ETHNIC_GROUP&outSR=4326&f=json",
+           "22": "https://maps2.bristol.gov.uk/server2/rest/services/ext/ward_profiles/MapServer/16/query?where=1%3D1&outFields=WARD_CODE,WARD_NAME,TOTAL_RES_POP_ETHNIC_GROUP,WHITE_TOTAL,BAME_GROUP_TOTAL,ASIAN_BANGLADESHI,ASIAN_CHINESE,ASIAN_INDIAN,ASIAN_PAKISTANI,ASIAN_OTHER,BLACK_AFRICAN,BLACK_CARIBBEAN,BLACK_OTHER,MULT_WHITE_ASIAN,MULT_WH_BL_AFRCAN,MULT_WH_BL_CARIBBEAN,MULT_OTHER,WHITE_BRITISH,WHITE_IRISH,WHITE_GYPSY_TRAV,WHITE_ROMA,WHITE_OTHER,OTHER_ARAB,ANY_OTHER_ETHNIC_GROUP,PC_WHITE_TOTAL,PC_BAME_GROUP_TOTAL,PC_ASIAN_BANGLADESHI,PC_ASIAN_CHINESE,PC_ASIAN_INDIAN,PC_ASIAN_PAKISTANI,PC_ASIAN_OTHER,PC_BLACK_AFRICAN,PC_BLACK_CARIBBEAN,PC_BLACK_OTHER,PC_MULT_WHITE_ASIAN,PC_MULT_WH_BL_AFRICAN,PC_MULT_WH_BL_CARIBBEAN,PC_MULT_OTHER,PC_WHITE_BRITISH,PC_WHITE_IRISH,PC_WHITE_GYPSY_TRAV,PC_WHITE_ROMA,PC_WHITE_OTHER,PC_OTHER_ARAB,PC_ANY_OTHER_ETHNIC_GROUP&outSR=4326&f=json", // Eth
 
-           "23": "https://maps2.bristol.gov.uk/server2/rest/services/ext/ward_profiles/MapServer/16/query?where=1%3D1&outFields=WARD_CODE,WARD_NAME,ALL_PPL_3_OVER_LANGUAGE,MAIN_LANG_ENGLISH,MAIN_LANG_NOT_ENGLISH,MAIN_LANG_NOT_ENG_VERY_WELL,MAIN_LANG_NOT_ENG_WELL,MAIN_LANG_NOT_ENG_NOT_WELL,MAIN_LANG_NOT_ENG_CANT,PC_MAIN_LANG_ENGLISH,PC_MAIN_LANG_NOT_ENGLISH,PC_MAIN_LANG_NOT_ENG_V_WELL,PC_MAIN_LANG_NOT_ENG_WELL,PC_MAIN_LANG_NOT_ENG_NOT_WELL,PC_MAIN_LANG_NOT_ENG_CANT&outSR=4326&f=json",
+           "23": "https://maps2.bristol.gov.uk/server2/rest/services/ext/ward_profiles/MapServer/16/query?where=1%3D1&outFields=WARD_CODE,WARD_NAME,ALL_PPL_3_OVER_LANGUAGE,MAIN_LANG_ENGLISH,MAIN_LANG_NOT_ENGLISH,MAIN_LANG_NOT_ENG_VERY_WELL,MAIN_LANG_NOT_ENG_WELL,MAIN_LANG_NOT_ENG_NOT_WELL,MAIN_LANG_NOT_ENG_CANT,PC_MAIN_LANG_ENGLISH,PC_MAIN_LANG_NOT_ENGLISH,PC_MAIN_LANG_NOT_ENG_V_WELL,PC_MAIN_LANG_NOT_ENG_WELL,PC_MAIN_LANG_NOT_ENG_NOT_WELL,PC_MAIN_LANG_NOT_ENG_CANT&outSR=4326&f=json", // Main Language Spoken (Census)
 
-           "24": "https://maps2.bristol.gov.uk/server2/rest/services/ext/ward_profiles/MapServer/34/query?where=1%3D1&outFields=*&outSR=4326&f=json",
+           "24": "https://maps2.bristol.gov.uk/server2/rest/services/ext/ward_profiles/MapServer/34/query?where=1%3D1&outFields=*&outSR=4326&f=json", // this is the everything dataset, it has a lot of data in it, so if we want to show something that isn't in the other datasets we can get it from here. but it is also a bit of a mess, so we might have to do some cleaning up.
 
-           "25": "https://maps2.bristol.gov.uk/server2/rest/services/ext/ward_profiles/MapServer/34/query?where=1%3D1&outFields=*&outSR=4326&f=json",
+           "25": "https://maps2.bristol.gov.uk/server2/rest/services/ext/ward_profiles/MapServer/34/query?where=1%3D1&outFields=*&outSR=4326&f=json", // same as 24, just in case we want to show two graphs from the same dataset
 
-           "26": "https://maps2.bristol.gov.uk/server2/rest/services/ext/ward_profiles/MapServer/16/query?where=1%3D1&outFields=WARD_CODE,WARD_NAME,TOT_RES_POP_RELIGION,NO_RELIGION,CHRISTIAN,BUDDHIST,HINDU,JEWISH,MUSLIM,SIKH,OTHER_RELIGION,NOT_ANSWERED,PC_NO_RELIGION,PC_CHRISTIAN,PC_BUDDHIST,PC_HINDU,PC_JEWISH,PC_MUSLIM,PC_SIKH,PC_OTHER_RELIGION,PC_NOT_ANSWERED&outSR=4326&f=json",
+           "26": "https://maps2.bristol.gov.uk/server2/rest/services/ext/ward_profiles/MapServer/16/query?where=1%3D1&outFields=WARD_CODE,WARD_NAME,TOT_RES_POP_RELIGION,NO_RELIGION,CHRISTIAN,BUDDHIST,HINDU,JEWISH,MUSLIM,SIKH,OTHER_RELIGION,NOT_ANSWERED,PC_NO_RELIGION,PC_CHRISTIAN,PC_BUDDHIST,PC_HINDU,PC_JEWISH,PC_MUSLIM,PC_SIKH,PC_OTHER_RELIGION,PC_NOT_ANSWERED&outSR=4326&f=json", // Religion (Census)
 
-           "27": "https://services2.arcgis.com/a4vR8lmmksFixzmB/arcgis/rest/services/Bristol_Quality_of_Life_data_(2024_25)/FeatureServer/0/query?where=1%3D1&outFields=Public_Title,Bristol_average,Sample_Size,Ward_name,Ward_e_codes,Year&outSR=4326&f=json"
+           "27": "https://services2.arcgis.com/a4vR8lmmksFixzmB/arcgis/rest/services/Bristol_Quality_of_Life_data_(2024_25)/FeatureServer/0/query?where=1%3D1&outFields=Public_Title,Bristol_average,Sample_Size,Ward_name,Ward_e_codes,Year&outSR=4326&f=json" // Quality of Life (2024/25)
        };
 
 
@@ -90,6 +90,20 @@
                        })
 
                });
+           } 
+
+           // to be able to actually rank the wards by the selected tag we need to tell the code which fields we are ranking the wards by. so before the graphndshi function, we need to add a function that takes the .data and looks for the most suitable field to rank the wards by. this is gonna be a bit of a pain but it is what it is.
+
+           const tagRankingMetrics = {
+
+            "1" : "NUM_SERVICE_USERS", // Social Care
+            "2" : "WARD_NUMBER", // Education
+            "3" : "TOTAL_CHILDREN_SOCIAL_CARE_NUM", // Children in Social Care
+            "4" : "WARD_NUMBER", // Crime
+            "5" : "WARD_NUMBER", // KS2 Attainment (Education)
+
+
+
            }
 
 
@@ -116,21 +130,23 @@
                    return;
                }
 
-               // Get all numeric fields from first feature to determine which metric to rank by
-               const sample = features[0].attributes;
-               let rankingMetric = null;
                
-               for (let key in sample) {
-                   const value = sample[key];
-                   if (typeof value === "number" && 
-                       !key.includes("CODE") && 
-                       !key.includes("ID") && 
-                       !key.includes("YEAR") &&
-                       !key.includes("PERIOD")) {
-                       rankingMetric = key;
-                       break; // Use first numeric field as ranking metric
-                   }
-               }
+               const sample = features[0].attributes; 
+               let rankingMetric = tagRankingMetrics[tag]; // Our default ranking metric if we can't find a suitable one
+               
+               if (!rankingMetric) {
+                     // If no predefined metric, try to find a numeric field in the dataset to use for ranking
+                    for (let key in sample) { //
+                        const value = sample[key];
+                        if (typeof value === "number" && 
+                            !key.includes("CODE") && 
+                            !key.includes("ID") && 
+                            !key.includes("YEAR") &&
+                            !key.includes("PERIOD")) {
+                            rankingMetric = key;
+                            break; // Use first numeric field as ranking metric
+                        }
+                    }
 
                if (!rankingMetric) {
                    container.appendChild(document.createTextNode("No numeric data to rank"));
@@ -193,6 +209,7 @@
                container.appendChild(canvas);
                main.appendChild(container);
            }
+        }
 
     </script>
 

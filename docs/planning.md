@@ -1,6 +1,7 @@
 # Project Proposal
 
 ## Business Case
+We felt freely filtering free open data to be inconvenient for personal use, such tools do exist but arent easy to find which leaves room for our purpose gathering meaningful data in a visual format.
 
 ### Problem statement
 If a person wants to move to Bristol, they will want to know more about their neighborhood in Bristol. Plus the propective Bristol entrepreneurs, together they all have a few things in common. Needing to filter, understand and evaluate information and data regarding to specific wards in Bristol.

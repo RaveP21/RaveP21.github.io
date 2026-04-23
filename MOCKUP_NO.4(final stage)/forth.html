@@ -182,8 +182,8 @@
     const params = new URLSearchParams(window.location.search);
     const role = params.get("role"); //extracts the role
 
-    const wardId = params.get("ward");
-    const Wname = params.get("Wname");
+    const wardId = params.get("ward"); // Ward ID received from the previous page
+    const Wname = params.get("Wname"); // Ward name received from the previous page
 
     document.getElementById("wardInput").value = Wname;
    
