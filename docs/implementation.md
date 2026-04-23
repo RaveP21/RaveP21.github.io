@@ -26,8 +26,6 @@ The configuration of mapping used by the system is the (pissbot). In it, there i
 <img width="750" height="750" alt="image" src="https://github.com/user-attachments/assets/bae9d3b5-2e42-4fd6-8609-3cf861948f45" />
 
 
-### Jslint warnings
-
 ### Explaintion
 The project follows a modular page-based structure where each file corresponds to a specific stage in the user journey. Separation of concerns is achieved by distributing responsibilities across pages, such as input collection (page 1, 2, 3, 4), processing (page 5, 6, 7), and visualisation (page 5, 7).
 
@@ -50,7 +48,6 @@ The system follows a client-side, data-driven architecture with elements of even
 ### Explaination
 The system separates concerns into distinct layers. User input is captured in the UI layer and passed through the navigation controller using URL parameters. The data fetch layer retrieves external datasets, which are processed and transformed before being rendered in the visualisation layer. This design ensures flexibility, allowing multiple user flows (map-based or search-based) to reach the same processing endpoints.
 
-### Diagram
 
 ## Bristol Open Data API
 ### Class Diagrams
@@ -66,7 +63,6 @@ All datasets follow a similar structure:
    2) "attributes{} → contains data values"
 
 # User guide
-TODO: Explain how each use-case works by providing step-by-step screenshots for each use-case. This should be based on a tested scenario.
 
 ## UC1 – Select Role
 Steps:
