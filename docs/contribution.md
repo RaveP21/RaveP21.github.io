@@ -1,9 +1,10 @@
 # Contribution Guidelines
 
-| Planning Stage   | Both members were present to discuss the function and value of the website. Both members were aligned with the business case     | Sami + Charlie    |
-| Design Stage    | Both members created simiar mockups during the same tutorial mockups were critically improved and arrenged for submission by Sami     | Sami + Charlie    |
-| Requirements Stage   |  Charlie was present for the initial business case tutorial, however the full meaning of the business case would not be achieved until recently by Sami    | Sami + Charlie    |
-| Implementation  Stage  | Charlie was focused on creating an interactable map that highlights the wards when hovered while Sami created the backbone for the eventual value streams. <br>
-| Implementation  Stage  | Charlie was focused on creating an interactable map that highlights the wards when hovered while Sami created the backbone for the eventual value streams.
-Sami worked on making sure data would be processed from page to page and implemented with the eventual api call Charlie cleaned this up and made sure the graphs represented actual chosen valuable data but struggled to rank wards by selected tag.     | Sami + Charlie    |
-| Testing  Stage  |     | Sami    |
+| Stage                           | Description                                                                                                                                                                                         | Contributors   |
+| ------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
+| Planning Stage                  | Both members were present to discuss the function and value of the website. Both members were aligned with the business case.                                                                       | Sami + Charlie |
+| Design Stage                    | Both members created similar mockups during the same tutorial. Mockups were critically improved and arranged for submission by Sami.                                                                | Sami + Charlie |
+| Requirements Stage              | Charlie was present for the initial business case tutorial, however the full meaning of the business case was only fully achieved recently by Sami.                                                 | Sami + Charlie |
+| Implementation Stage            | Charlie focused on creating an interactive map that highlights wards when hovered, while Sami created the backbone for the eventual value streams.                                                  | Sami + Charlie |
+| Implementation Stage (Extended) | Sami worked on ensuring data processing between pages and implementing the API call. Charlie refined this and ensured graphs reflected meaningful data but struggled to rank wards by selected tag. | Sami + Charlie |
+| Testing Stage                   | Sami took the requirements and tested the functional requirement from FR1-FR9 thoroughly (2-3 unit tests and 1-2 integration testing), for FR10-NFR7 enough to cover the minum working application. | Sami           |
