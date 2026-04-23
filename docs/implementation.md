@@ -75,10 +75,65 @@ Steps:
    2) Select “Mover”
    3) Redirect to map
 
-Expected Result:
+Expected Result: 
 
    --> URL contains role=Mover
+<img width="1920" height="1080" alt="1" src="https://github.com/user-attachments/assets/e731fb6d-4056-47c9-97a3-a67277ee87e5" />
 
 ## UC2 – Map Selection
-etc
-etc
+Steps:
+
+   1) Hover over Map
+   2) Choose highlighted ward
+   3) Redirect to tag selection
+      
+Expected resilts: 
+    --> URL contains ward=Ward_ID&wardN=Ward_Name
+    <img width="1920" height="1080" alt="2" src="https://github.com/user-attachments/assets/caf7221e-4e08-4e94-ae58-c4af811ac11d" />
+
+## UC3 – Search and scoring system
+Steps:
+
+   1) Search key words
+   2) Url forwards the search term
+   3) System processes and scores the key words 
+      
+Expected resilts: 
+    --> Wards listed by their name, code and keywords, dynamically apear by score
+<img width="1920" height="1080" alt="5" src="https://github.com/user-attachments/assets/f9befba0-b945-43d9-8767-6af75359bce9" />
+<img width="1920" height="1080" alt="6" src="https://github.com/user-attachments/assets/4e59fc99-bc52-4454-9c1a-6c6d846af9e6" />
+
+## UC4 – Tag selelction (page 3 and 4)
+Steps:
+
+   1) Page loads a checklist with the list of 24 tags
+   2) Click on interesting tags
+   3) Each tag links to a dataset
+      
+Expected resilts: 
+    --> Url forwards e.g "info=1&info=9&info=19&info=..."
+<img width="1920" height="1080" alt="3" src="https://github.com/user-attachments/assets/e5174689-069d-4fde-9c7a-a4769350ee7f" />
+<img width="1920" height="1080" alt="7" src="https://github.com/user-attachments/assets/8cd9765e-81ac-4c23-ac27-c9fda499d0d2" />
+
+## UC5 – Ward Ranking by tag
+Steps:
+
+   1) Reads url e.g "info=1&info=9&info=19&info=..."
+   2) Creates an arrey of strings
+   3) Data is pulled using fetch() and filtered
+      
+Expected resilts: 
+    --> Page displays 1 chart for each tag, ranking wards by tags/topics
+ <img width="1920" height="1080" alt="8" src="https://github.com/user-attachments/assets/3b6b3453-bbb5-479c-af64-e024c26830d4" />
+   
+## UC6 – Data visulatisation sorted by ward
+Steps:
+
+   1) Reads url e.g "info=1&info=9&info=19&info=..." and "ward=Ward_ID&wardN=Ward_Name"
+   2) Data is pulled using fetch() and filtered by ward
+   3) Using the ward data, chart.js creates one pi chart and one bar graph
+      
+Expected resilts: 
+    --> Page displays data of the selected tags by ward
+  <img width="1920" height="1080" alt="4" src="https://github.com/user-attachments/assets/5eccb4b3-e424-4d57-bd1b-d0c1178d657c" />
+  
