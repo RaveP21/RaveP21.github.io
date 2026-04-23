@@ -45,6 +45,8 @@ The system follows a client-side, data-driven architecture with elements of even
 | Visualisation Layer   | Chart.js rendering                        |
 | Configuration Layer   | Tag → dataset mapping                     |
 
+<img width="850" height="750" alt="image" src="https://github.com/RaveP21/RaveP21.github.io/blob/main/docs/images/component.png" />
+
 ### Explaination
 The system separates concerns into distinct layers. User input is captured in the UI layer and passed through the navigation controller using URL parameters. The data fetch layer retrieves external datasets, which are processed and transformed before being rendered in the visualisation layer. This design ensures flexibility, allowing multiple user flows (map-based or search-based) to reach the same processing endpoints.
 
